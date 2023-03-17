@@ -24,7 +24,7 @@ export const navlinks = [
   },
   {
     id: 6,
-    title: "Inspire",
-    link: "/success-thoughts",
+    title: "Success thoughts",
+    link: "/success-thought",
   },
 ];

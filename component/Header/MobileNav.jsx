@@ -14,7 +14,7 @@ const MobileNav = ({setClick, active, setActive, click }) => {
         animate='visible'
         exit='exit'
 
-        className="absolute bg-black top-0 right-0 w-[60vw] md:hidden px-10 pt-20 h-[100vh]"
+        className="fixed bg-black top-0 right-0 w-[60vw] md:hidden px-10 pt-20 h-[100vh]"
       >
         <OnClickOutside
           show={click}
