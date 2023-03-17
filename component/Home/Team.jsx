@@ -5,10 +5,11 @@ import { AiOutlineFacebook, AiOutlineInstagram, AiOutlineTwitter } from 'react-i
 
 const Team = () => {
   return (
-    <div className='section-container items-center py-24 gap-6'>
-      <div className="flex-1  ">
-        <div className="rounded-full h-56 w-56 bg-yellow-500">
-
+    <div className='section-container items-center py-24 gap-10'>
+      <div className="flex-1 flex justify-end ">
+        <div className="h-full w-[400px] relative right-0">
+          <img src="/rev-kenna-emmanuel-web.png" alt="team-leaders" 
+          className='w-full h-full '/>
         </div>
         <div className="img absolute">
 

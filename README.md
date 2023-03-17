@@ -4,6 +4,10 @@ This is a full satck church organization web application. The application is des
 
 #### Diagrams
 
+<img src='public/f1.PNG' alt='banner'/>
+
+<img src='public/f2.PNG' alt='banner'/>
+
 ## Getting Started
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
