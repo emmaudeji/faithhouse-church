@@ -1,6 +1,12 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Faithhouse Church
+
+This is a full satck church organization web application. The application is designed to host the organization and its activities online. A content managemnet panel is designed with Sanity js for updating the content of the website as well as updating the activities of the organization online.
+
+#### Diagrams
 
 ## Getting Started
+
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 First, run the development server:
 

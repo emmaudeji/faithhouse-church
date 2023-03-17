@@ -43,15 +43,15 @@ const Events = () => {
 
       {/* Action buttons */}
       <div className="btn flex justify-center pt-14">
-        <div className="flex gap-4">
+        <div className="flex gap-4 text-sm">
           <div>
             <OutlineButtonBlack>
               View Events
             </OutlineButtonBlack>
           </div>
-          <div>
+          <div className="">
              <OutlineButtonBlack>
-              Register Evnet
+              Register for Event
             </OutlineButtonBlack>
           </div>
         </div>
