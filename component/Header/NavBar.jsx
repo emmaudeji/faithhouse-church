@@ -10,8 +10,8 @@ const NavBar = ({post}) => {
 
       <div className="logo">
         <Link href={'/'}>
-          <div className='md:w-40 w-28 sm:36 font-bold cursor-pointer hover:scale-105 duration-300'>
-            <img src="./faithhouse-logo.png" alt="faithhouse-logo" />
+          <div className='md:w-40 w-28 sm:w-36 cursor-pointer hover:scale-105 duration-300'>
+            <img src="./faithhouse-logo.png" alt="faithhouse-lo" />
           </div>
         </Link>
       </div>

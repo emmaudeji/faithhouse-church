@@ -10,13 +10,13 @@ export const headingList = [
   {
     id: 1,
     heading: `2023 Prophetic focus: Powered riches 2023`,
-    link: "/resources",
+    link: "/resources/year-declaration",
     btnText: "Learn more",
   },
   {
     id: 2,
     heading: `March 2023: My Month of Spiritual Prowess`,
-    link: "/resources",
+    link: "/resources/year-declaration",
     btnText: "Learn more",
   },
 ];
