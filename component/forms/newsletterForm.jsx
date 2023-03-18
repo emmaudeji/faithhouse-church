@@ -1,6 +1,8 @@
 import Link from "next/link"
 import { useState } from "react";
 import OutlineButtonBlack from "../buttons/OutlineButtonBlack";
+import { AiOutlineMail, } from "react-icons/ai";
+import { AiOutlinePhone } from "react-icons/ai";
 
 const newsletterForm = () => {
   const [input, setInput] = useState({
@@ -35,7 +37,7 @@ const newsletterForm = () => {
       <div className="flex gap-2 flex-col pb-2">
 
         <div className="flex-1 bg-white w-full relative rounded-full overflow-hidden  flex gap-2 items-center text-zinc-400">
-          <div className="pl-4 pr-2 py-3 border-r border-zinc-400">icon</div>
+          <div className="pl-4 pr-2 py-3 border-r border-zinc-400 text-xl"><AiOutlineMail/></div>
           <input type="email" name="email" value={input.email} placeholder="Enter email" 
           onChange={handleChange}
           className=""/>
@@ -43,8 +45,8 @@ const newsletterForm = () => {
 
         <div className="flex-1 flex gap-2 items-center w-full">
           <div className="flex-1 bg-white w-full relative rounded-full overflow-hidden  flex gap-2 items-center text-zinc-400">
-            <div className="pl-4 pr-2 py-3 border-r border-zinc-400">icon</div>
-            <input type="tel" name="phonenumber" value={input.phonenumber} placeholder="Enter phonenumber" 
+            <div className="pl-4 pr-2 py-3 border-r border-zinc-400 text-xl"><AiOutlinePhone/></div>
+            <input type="tel" name="phonenumber" value={input.phonenumber} placeholder="Phonenumber" 
             onChange={handleChange}
             className=""/>
           </div>

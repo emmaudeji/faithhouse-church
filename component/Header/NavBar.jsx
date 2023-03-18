@@ -6,7 +6,7 @@ import GiveButton from '../buttons/GiveButton'
 const NavBar = ({post}) => {
 
   return (
-    <div className='section-container text-white h-20 bg-gradient-to-t from-black fixed items-center justify-between'>
+    <div className='section-container text-white h-20  bg-black fixed items-center justify-between'>
 
       <div className="logo">
         <Link href={'/'}>

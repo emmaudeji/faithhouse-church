@@ -23,7 +23,7 @@ const Community = () => {
 
         {/* community groups */}
         <div className="col-span-2">
-          <div className="grid grid-cols-2 gap-1">
+          <div className="h-full grid grid-cols-2 gap-1 justify-center">
             {
               group?.map(({id, title}) => {
                 return (<Link href={`./community/#${id}`}>

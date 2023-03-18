@@ -4,13 +4,13 @@ const Services = () => {
   return (
     <div className='w-full pt-14 pb-24 flex  md:flex-row flex-col items-center capitalize gap-0'> 
       
-      <div className="h-44 flex items-center   flex-1 w-full min-h-36 pl-6 sm:pl-16 lg:pl-36 pr-6 bg-yellow-500 ">
+      <div className="h-44 py-4 flex items-center   flex-1 w-full min-h-36 pl-6 sm:pl-16 lg:pl-36 pr-6 bg-yellow-500 ">
         <h1 className='text-xl '>
           Encounter God in our life transforming Services
         </h1>
       </div>
 
-      <div className="h-44  flex items-center sunday flex-1 w-full min-h-36 bg-yellow-400  px-6 ">
+      <div className="h-44 py-4 flex items-center sunday flex-1 w-full min-h-36 bg-yellow-400  px-6 ">
        <div className='flex gap-4'>
         <div className="icon pr-3 border-r-2 border-black" >
         </div>
@@ -28,7 +28,7 @@ const Services = () => {
         </div>
       </div>
 
-      <div className="h-44 flex items-center  thursday flex-1 w-full min-h-36 sm:pr-16 lg:pr-36 pl-6  bg-yellow-500 ">
+      <div className="h-44 py-4 flex items-center  thursday flex-1 w-full min-h-36 sm:pr-16 lg:pr-36 pl-6  bg-yellow-500 ">
          <div className='flex gap-4'>
         <div className="icon pr-3 border-r-2 border-black" >
         </div>

@@ -15,9 +15,9 @@ const PageHeroBanner = ({heading, pageTitle, image}) => {
       
       <div className='section-container absolute top-0 h-[60vh] w-full flex items-center justify-center bg-gradient-to-t from-black text-left text-white '>
 
-        <div className='px-6 absolute bottom-20 sm:pr-[30vw] lg:pr-[45vw]'>
+        <div className='px-6 sm:px-16 md:px-36 absolute bottom-22 sm:pr-[30vw] lg:pr-[45vw]'>
           <h4 className='text-xl'>{pageTitle}</h4>
-          <h1 className='text-4xl md:5xl font-bold '>{heading} </h1>
+          <h1 className='text-2xl md:text-4xl lg:text-5xl font-bold '>{heading} </h1>
         </div>
       </div>
 
