@@ -3,7 +3,7 @@ import ResourcesCard from '../cards/ResourcesCard'
 import { resoucesLabel } from '@/Data/resourcesLabel'
 
 const Resources = () => {
-  console.log(resoucesLabel)
+  
   return (
     <div className='w-full  px-6 sm:px-16 lg:px-36 py-24 bg-zinc-100 '>
       
@@ -18,7 +18,7 @@ const Resources = () => {
       <div className="slider-container w-full grid sm:grid-cols-2 md:gap-12 lg:gap-2 lg:grid-cols-4 items-center gap-4">
         {
           resoucesLabel?.map(({id, advertImage, link, title, emphasis}) => {
-            console.log(link)
+            
             return (
               <div key={id}>
                 

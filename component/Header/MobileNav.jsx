@@ -1,7 +1,7 @@
 import React from 'react'
 import {motion, AnimatePresence} from 'framer-motion';
 import Link from 'next/link';
-import { navlinks } from '@/Data/navLinks';
+import { mobilenavLinks } from '@/Data/mobilenavLinks';
 import { dropdownVariants } from '../animations/DropdownVariants';
 import OnClickOutside from '../../hooks/OnClickOutside';
 
@@ -22,7 +22,7 @@ const MobileNav = ({setClick, active, setActive, click }) => {
           component={
              <div className='grid gap-8'>
                 {
-                  navlinks.map(({id, title, link}) => {
+                  mobilenavLinks.map(({id, title, link}) => {
                     return (
                         <div key={id}
                         onClick={() => setClick(false)}>

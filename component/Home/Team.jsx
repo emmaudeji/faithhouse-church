@@ -17,7 +17,7 @@ const Team = () => {
       </div>
 
       <div className='flex-1 grid gap-3'>
-        <h1 className="text-4xl text-zinc-300 font-bold">
+        <h1 className="text-3xl md:text-4xl text-zinc-300 font-bold">
           Connect with our Team Leaders
         </h1>
         <p>

@@ -19,11 +19,11 @@ const Footer = () => {
       <div className="grid md:grid-cols-3 gap-6 md:gap-10 lg:gap-14 pb-24">
 
         <div className="first grid gap-4 col-span-1">
-          <Link href='/'>
+          <div onClick={() => window.scrollTo({top: 0, left: 0, behavior: 'smooth'})}>
             <div className="w-48">
             <img src="/faithhouse-logo-black.png" alt="logo" className="logo" />
           </div>
-          </Link>
+          </div>
         
           <p>
             Our online  community is designed to provide you with resources to support your personal growth and the ultimate purpose of living a life that is pleasing to God and self fulfilling.

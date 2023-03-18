@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Community = () => {
   const group = groupList.slice(0, 8);
-  console.log(group)
+  
   return (
     <div className='section-container py-24 justify-center items-center relative'>
       {/* description */}
@@ -27,7 +27,7 @@ const Community = () => {
             {
               group?.map(({id, title}) => {
                 return (<Link href={`./community/#${id}`}>
-                <p key={id} className='bg-zinc-300 p-6 hover:bg-zinc-400 duration-500'>{(title.length > 16) ? title.slice(0, 14) + '...' : title}</p>
+                <p key={id} className='bg-zinc-300 h-full p-6 hover:bg-zinc-400 duration-500'>{(title.length > 16) ? title.slice(0, 14) + '...' : title}</p>
                 </Link>)
               })
             }
