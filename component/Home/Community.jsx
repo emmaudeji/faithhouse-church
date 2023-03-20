@@ -1,8 +1,14 @@
 import { groupList } from "@/Data/groupList"
 import Link from "next/link";
 
-const Community = ({heading, text, img}) => {
-  const group = groupList.slice(0, 8);
+const Community = ({heading, text, img, list}) => {
+  let group = []
+  if (!list ) {
+    group = (groupList.slice(0, 8));
+  } else {
+    group = list
+  }
+  
   
   return (
     <div className='section-container py-24 justify-center items-center relative'>
@@ -28,10 +34,14 @@ const Community = ({heading, text, img}) => {
             :
             <div className="h-full grid grid-cols-2 gap-1 justify-center">
               {
-                group?.map(({id, title}) => {
+                group?.map(({id, title, link}) => {
                   return (
-                  <Link href={`./community/#${id}`} key={id}>
-                  <p  className='bg-zinc-300 h-full p-6 hover:bg-zinc-400 duration-500'>{(title.length > 16) ? title.slice(0, 14) + '...' : title}</p>
+                  <Link href={`${link}#${id}`} key={id}>
+                  <p  className='bg-zinc-300 h-full p-6 hover:bg-zinc-400 duration-500'>{
+                  // (title.length > 16) ? title.slice(0, 14) + '...' : title
+                  title
+                }
+                  </p>
                   </Link>)
                 })
               }
