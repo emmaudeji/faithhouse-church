@@ -59,7 +59,7 @@ const HeroBanner = () => {
 
       </div>
 
-      <div className='right-0 bottom-0 h-24  bg-yellow-500 w-[90vw] md:w-[60vw] absolute pr-6 sm:pr-16 md:pr-36 pl-10 flex items-center rounded-l-full overflow-hidden cursor-pointer hover:scale-105 duration-300'>
+      <div className='right-0 bottom-0 h-24  bg-yellow-500  w-[95%] md:w-[60vw] absolute pr-6 sm:pr-16 md:pr-36 pl-10 flex items-center rounded-l-full overflow-hidden cursor-pointer hover:scale-105 duration-300'>
         <SuccessThought/>
       </div>
        

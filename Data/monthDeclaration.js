@@ -1,6 +1,19 @@
 export const monthDeclaration = [
   "",
-  "",
+  {
+    id: 1,
+    month: "February",
+    year: "2023",
+    theme: "My Month of a Productive Life",
+    emphasis: "I AM BLESSED TO PROSPER, REPRODUCE AND TAKE CHARGE ",
+    scriptures: "Gen.1vs 26- 28, Msg, Ps.8vs 5 Msg, Eph.1vs 16- 22",
+
+    p1: "To God alone be all the glory for a bright new month in the year of powered RICHES. We return thanks to Him for the amazing testimonies of Janauary that must overflow into February in Jesus name. God's word for us this year is so strategic as he has decided in one of those  2023 SPIRITUAL GUIDELINES  insisted that this EARTH MUST PRODUCE our financial Riches. This must happen in Jesus name. To make that happen, God's word has come again that  FEBRUARY IS OUR MONTH OF A PRODUCTIVE LIFE. ...I am blessed to PROSPER, REPRODUCE AND TAKE CHARGE.",
+    p2: "TAccording to Genesis 1:26-28 (MSG) : God spoke:  Let us make human beings in our image, make them reflecting our nature, So they can be responsible for the fish in the sea,the birds in the air, the cattle, And, yes, Earth itself,and every animal that moves on the face of Earth. God created human beings;he created them odlike. flecting God's nature He created them male and female.God blessed them:Prosper! Reproduce! Fill Earth! Take arge!Be responsible for fish in the sea and birds in the air,for every living thing that moves on the face of Earth.",
+    p3: "This was the direct word and commandment God gave his 1st human beings on earth, Adam and Eve. They took this word seriously and today what we are seeing is a BY PRODUCT OF THEM ACTING ON THAT SENT WORD. Friends,THIS SAME WORD is coming to us as a COMMISION this month. We need to ENGAGE this prophetic blessings from God- push through prosperity by tilling our skills, abilities, strenghts, ideas, inner power making it to PRODUCE, that is HOW TO ACCESS POWERED RICHES this year. ",
+    p4: "Your abilities will PRODUCE this month and beyond in Jesus name. It starts by understanding your DIVINE NATURE. By Divine nature you are not empty. By Divine nature you cannot be stranded. By Divine nature you have access to Riches, Wealth, Power, Blessing, Glory and strenght. By Divine nature you can walk away from sickness and shut the mouth of Death These things are real..Revelation 5:12 Saying with a loud voice, Worthy is the Lamb that was slain to receive power, and riches, and wisdom, and strength, and honour, and glory, and blessing. This word TAKE CHARGE is also critical for us. We must WAKE UP and take Charge of our families, take Charge of our health, businesses, finances, marriages, career and destiny in Jesus name. Friends, YOU and I must take Charge of our spiritual Destiny in God. When you are in Charge: it is impossible for sin to take charge of you in Jesus name. It is an error for you to be oppressed by wickedness this year in Jesus name. It is impossible for you to die this year You will not know shame. You will not be crushed by life. Your environment will not swallow your head and you must rise in Jesus name. Make no mistake about it, hell is angry that you will rise this year- fight him ,harrass him. Beat the hell out of him through DAILY aggresive prayers and  intentional PROPHETIC WORD. Make sure you VOW TO REACH OUT TO AT LEAST ONE SOUL THIS MONTH   Make sure you SAVE LIVES by dragging  People around you  to Church this month.Make sure you reject laziness and embrace hardwork this month. Rush into this year and make God Proud in Jesus name. Arise and Rule. ",
+    sign: "Rev. Barr. Ikenna Emmanuel and Barr. (Mrs) Nkiru Ikenna Emmanuel",
+  },
   {
     id: 2,
     month: "March",

@@ -14,14 +14,22 @@ export default function Home() {
   return (
     <>
       <HeroBanner />
-      <WhyUs1 />
+      <WhyUs1
+        text="We are a community of impact driven people passionate about raising leaders of integrity and excellence for national transformation"
+        heading="We are not just a church"
+        img="men-in-worship.jpg"
+        showBtn={true}
+      />
       <Events />
       <Services />
       <WhyUs2 />
       <Resources />
       <Team />
       <Testimonial />
-      <Community />
+      <Community
+        heading="Volunteer Today"
+        text="One of the central ways we grow as disciples of Jesus is by having intentional relationships with people who share the same goal.Join any of our community today and let’s grow together."
+      />
       <Organization />
     </>
   );

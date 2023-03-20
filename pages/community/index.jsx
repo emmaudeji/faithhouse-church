@@ -13,8 +13,8 @@ const index = () => {
         {
           groupList?.map(({id, title}) => {
             return (
-              <Link href={`./community/#${id}`}>
-                <p key={id} className='bg-zinc-400 p-6 hover:bg-zinc-500 duration-500 border-r'>{title}</p>
+              <Link href={`./community/#${id}`} key={id}>
+                <p  className='bg-zinc-400 p-6 hover:bg-zinc-500 duration-500 border-r'>{title}</p>
               </Link>
             )
           })

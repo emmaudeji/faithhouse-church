@@ -6,9 +6,8 @@ import ConnectButton from '../buttons/ConnectButton'
 import WatchButton from '../buttons/WatchButton'
 import { quickLinks } from '@/Data/quickLinks'
 import { downloads } from '@/Data/downloads'
-import { AiOutlineYoutube } from 'react-icons/ai'
-import { AiOutlineFacebook } from 'react-icons/ai'
-import { AiOutlineInstagram } from 'react-icons/ai'
+import Address from '../Address'
+import MediaIcons from '../MediaIcons'
 
 const Footer = () => {
   return (
@@ -46,18 +45,7 @@ const Footer = () => {
                   </OutlineButtonBlack>
                 </div>
               </div>
-
-              <div className="icons flex gap-2 text-4xl">
-                <div className="bg-yellow-400 h-16 w-16 flex justify-center items-center hover:text-5xl duration-300 rounded-full">
-                  <AiOutlineYoutube/>
-                </div>
-                <div className="bg-yellow-400 h-16 w-16  rounded-full flex justify-center items-center hover:text-5xl duration-300 ">
-                  <AiOutlineFacebook/>
-                </div>
-                <div className="bg-yellow-400 h-16 w-16  rounded-full flex justify-center items-center hover:text-5xl duration-300 ">
-                  <AiOutlineInstagram/>
-                </div>
-              </div>
+                <MediaIcons/>
             </div>
         </div>
 
@@ -120,15 +108,7 @@ const Footer = () => {
               </h2>
             </div>
 
-            <div className="owerri pb-4">
-              <h5 className='font-bold'>Owerri Address</h5>
-              <p>123 Okigwe road, opposite Imo Girls College Owerri.</p>
-            </div>
-
-            <div className="PortHarcourt">
-              <h5 className='font-bold'>PortHarcourt</h5>
-              <p>123 Okigwe road, opposite Imo Girls College Owerri.</p>
-            </div>
+            <Address/>
           </div>
           </div>
          

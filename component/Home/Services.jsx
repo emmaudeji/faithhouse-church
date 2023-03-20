@@ -1,8 +1,8 @@
 import React from 'react'
 
-const Services = () => {
+const Services = ({removePadding}) => {
   return (
-    <div className='w-full pt-14 pb-24 flex  md:flex-row flex-col items-center capitalize gap-0'> 
+    <div className={`w-full pt-14 ${removePadding ? 'pb-0' : 'pb-24'} flex  md:flex-row flex-col items-center capitalize gap-0`}> 
       
       <div className="h-44 py-4 flex items-center   flex-1 w-full min-h-36 pl-6 sm:pl-16 lg:pl-36 pr-6 bg-yellow-500 ">
         <h1 className='text-xl '>
