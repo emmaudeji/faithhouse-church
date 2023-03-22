@@ -46,7 +46,7 @@ const HeroBanner = () => {
             { headingList[index].btnText }
             </Link>
 
-            <Link href='./watch' className="px-6 py-3 border-2 rounded-full border-white hover:bg-white hover:text-black cursor-pointer duration-500"><WatchButton/></Link>
+            <Link href='./watch#view' className="px-6 py-3 border-2 rounded-full border-white hover:bg-white hover:text-black cursor-pointer duration-500"><WatchButton/></Link>
 
           </div>
 

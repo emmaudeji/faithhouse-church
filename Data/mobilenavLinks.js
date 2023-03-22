@@ -21,7 +21,7 @@ export const mobilenavLinks = [
   {
     id: 3,
     title: <WatchButton />,
-    link: "/watch",
+    link: "/watch#view",
   },
   {
     id: 6,
