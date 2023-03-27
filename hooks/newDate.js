@@ -3,7 +3,7 @@ export const newDate = () => {
 
   let day = objectDate.getDate();
 
-  let month = objectDate.getMonth();
+  let month = objectDate.getMonth() + 1;
 
   let year = objectDate.getFullYear();
 
@@ -15,7 +15,7 @@ export const newDate = () => {
     month = `0${month}`;
   }
 
-  let format1 = `${month}/${day}/${year}`;
+  let format1 = `${day}/${month}/${year}`;
 
   return format1;
 };

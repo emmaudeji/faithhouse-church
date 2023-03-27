@@ -1,0 +1,15 @@
+export const credentials = {
+  type: "service_account",
+  project_id: "success-thoughts-form",
+  private_key_id: "1fe627f39592fd8c173369766ed5cb6ebae79b30",
+  private_key:
+    "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDEY5Jm8tghrKVY\nD77FXsqdQYNLivuNyOm7y2BQqf2sMz+3z5G/9PkjIUO6i8V51Z4AfwSyUpNLXcuZ\nkfJn/MqmHZLYKrWuELMvHwGslia8n3ndg5e+dd7oGNMWJliq6W/J4cP8zA11hR30\nHFPh5lM90Z8WB2v8Bunjwj7ufL7ueb7BtqDORh5Ny+XC/pb3X5yCGyRlxPZPN6Qi\nUxL1kqovJe7rNxaewqQYpyEc8kgU0HSFS5peQ2CtLd6rSk9tBxsRCKjfeLIrfCPB\n7LVKEQUV7f6A4JXlrM1l5EBHmqGUatY7YDi1lE6aEyU7JEvseZVxHo1Lj8m/06k8\nT+XF4aATAgMBAAECggEAAZHCIXWexRqw8dk1ODTWkju1OAh3b0t63hx1FybJLirQ\nY9LJGWIrfKXPHi0U58N7PuUyqvtHqXo71Wznt9tNAiCJzUxsXGSXfELpvfDBzeru\nC85C1HTOZKK1AbJOdxYJU4Njxvtidd0Zmr/JfPWBX6TOnqUEieR59yX5X+let4P9\nYnb6tGmASB+2EpZKBlWyxMvuFgvreQEkEN9Z+d0ZarM0K9G6fwZhU9mGNJCpNxBG\n+XTzadabzH1nbpJOKe4oR37UdX7nylJMZgsvCPni3QWsnRgujuotAtu+bKZ04EUi\nCi0CpYXWy2xHoqlUg7O9uoqoX0qgnLGnIeElyO6VkQKBgQDtg27LxYHYuWpWTHTW\nmBhzkEraMXgGdq2jDc8VmpT9xIYRJSb0G/u76SAEtcg1FqDeWf7zFubDwFG/Nlhk\n/j4EFJhrRqbHQVyG8kSCg2UO+oQFuGIViVyGvl8CQAHPtY4iylZo4ycfhpUjiwts\neF4SlS9bG1+BIdzYoeUFjNcvpwKBgQDTrLb9aiZk6FI9wThPFLG9uMT2+jLGnOIG\nzLwjTt+UNqVyJy1PQNjkBelEKbVsppY4Ksb9n3pCTnRAtVFdQlsS04i0JnfnzQfM\nIQExuGUXdhIptUA+Czrxp0qEFj/yeb4abkpaPtiRerxWSCLFz1JB6vf3jhx/sjmo\neDQDYPF5tQKBgClZ4qZTgqHK1jqkIQtje45TJtUKG810SBLFSrKGMT5lQrolb7y8\nSn2SvuJTC8JCaEuN+5cy+4ZFK3ZQ7d7XbNClDUxQBqVWOde8wjS+z49mCio8ycba\nHWPQLRZlMmuJPm/MLnMgaSVR9xEzGhAOfMJbet0vzNbcoGiO9yKaPLStAoGAeNGp\ndQXEum38mzERUdoPBapUCmCO4NylCpqLfF/Fr9RtJLYF36m04poZJgXkfwqqzY5l\nHFiNsREUu+aCdYetchZ5fdJDOHTH0ZS5GMcWNIj5HwNMkt1YHJyPJMuKXn1sq6tu\nFwquFIOIwnrUFjIa0nMqbAuaaqywyl8p2Q/ZZM0CgYEAoFexo0QAm3VxtXpTfkLI\nHHwG1LPafT5NtvSWB51Sdn2xO6cWA7KWbUySIRBbxD6yRCzPnfOdVhhZcpZ2OhuY\nz10Qs2uIdxMHP5LgGO7q1o4FGbsUU7ZwXuj8Jl/UickYbvRjpY3VMN5TPuzNa0IE\niZV+Tdr8wxfUDVb1zGpfxKE=\n-----END PRIVATE KEY-----\n",
+  client_email:
+    "success-thoughts@success-thoughts-form.iam.gserviceaccount.com",
+  client_id: "107752166008843989740",
+  auth_uri: "https://accounts.google.com/o/oauth2/auth",
+  token_uri: "https://oauth2.googleapis.com/token",
+  auth_provider_x509_cert_url: "https://www.googleapis.com/oauth2/v1/certs",
+  client_x509_cert_url:
+    "https://www.googleapis.com/robot/v1/metadata/x509/success-thoughts%40success-thoughts-form.iam.gserviceaccount.com",
+};

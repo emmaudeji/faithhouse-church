@@ -26,7 +26,7 @@ export const getServerSideProps = async () => {
 }
 
 const watch = ({data}) => {
-  const ref = useRef(null)
+  const videoRef = useRef();
   // console.log('data--', data)
   const [youtubeID, setYoutubeID] = useState(null)
   const [showPlaylist, setShowPlaylist] = useState(false)
@@ -53,16 +53,12 @@ const watch = ({data}) => {
         </div>
       </div>
 
-      
-      
-        
-
       <div className=''>
 
         {showPlaylist && ( 
           <> 
             {/* Youtube video Card component */}
-            <div className='w-full flex justify-center pb-10'>
+            <div ref={videoRef} className='w-full px-6 flex justify-center pb-10'>
               <div>
                 {youtubeID && <div id='stream' className=' relative mt-10' >
                 <YouTube videoId={youtubeID}  />
@@ -70,7 +66,7 @@ const watch = ({data}) => {
                 className="absolute top-2 right-2 rounded-full px-2 py-1  bg-yellow-400 text-black font-semibold"> x
                 </button>
               </div>}
-              </div>
+            </div>
           
             </div>
             {/* playlist selection bar */}
@@ -92,11 +88,14 @@ const watch = ({data}) => {
               const videoUrl = `https://www.youtube.com/watch?v=${resourceId.videoId}`
 
               return(
-                <div key={id} onClick={() => setYoutubeID(resourceId.videoId)}>
+                <div onClick={window.scrollTo(videoRef.current)}>
+                  <div key={id} onClick={() => setYoutubeID(resourceId.videoId)}>
                   <ResourcesCard
                   title={title} link={''} cardImage={medium.url} 
-                  />
+                    />
+                  </div>
                 </div>
+                
                 
               )
             }) : <p>An error occured. Check your network connection</p>
