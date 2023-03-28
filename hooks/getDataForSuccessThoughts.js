@@ -75,28 +75,28 @@ export const getData = async () => {
 };
 
 // using sheets.best
-export const getDataFromSheet = async () => {
-  let data = "no data";
-  let err = "no error signal ";
-  try {
-    const res = await fetch(
-      `https://sheet.best/api/sheets/d0cbb106-1d12-4539-b49d-73f5f875059e`
-    );
-    if (res) {
-      data = await res.json();
-    }
-  } catch (err) {
-    err = err;
-    console.log(err);
-  }
+// export const getDataFromSheet = async () => {
+//   let data = "no data";
+//   let err = "no error signal ";
+//   try {
+//     const res = await fetch(
+//       `https://sheet.best/api/sheets/d0cbb106-1d12-4539-b49d-73f5f875059e`
+//     );
+//     if (res) {
+//       data = await res.json();
+//     }
+//   } catch (err) {
+//     err = err;
+//     console.log(err);
+//   }
 
   // var circularObj = rows;
   // circularObj.circularRef = circularObj;
   // circularObj.list = [circularObj, circularObj];
   // console.log(stringify(circularObj, null, 2));
 
-  return {
-    data: data,
-    err,
-  };
-};
+//   return {
+//     data: data,
+//     err,
+//   };
+// };

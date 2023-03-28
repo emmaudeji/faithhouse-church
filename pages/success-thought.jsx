@@ -24,7 +24,6 @@ const Success = (props) => {
   const {data, err} = props
   const [mainData, setMainData] = useState(data ? data : [])
 
-  // search content by monthly view
   const [active, setActive] = useState('')
   const [daysoftheMonth, setDaysoftheMonth] = useState(daylist31);
   const [activeYear, setActiveYear] = useState('2023')
@@ -33,7 +32,18 @@ const Success = (props) => {
   const [content, setContent] = useState([])
   const [activeSeries, setActiveSeries] = useState('Success')
   const [seriesContent, setSeriesContent] = useState([])
+  const [dropdownContent, setDropdownContent] = useState('')
 
+  // generate year list
+  const newList = mainData?.map(item => {
+    return {name: String(new Date(item.date).getFullYear())}
+  })
+  const yearList = newList?.reduce((acc, curr) => {
+    if(!acc.includes(curr.name)){acc.push(curr.name)}
+    return acc
+  }, []).sort()
+
+  // onClick month: select a type of calender date to display
   const findMonth =  (month) => {
     if (month === "February") {
       setDaysoftheMonth(daylist29);
@@ -84,7 +94,13 @@ const Success = (props) => {
     handleClickSeries()
   }, [activeSeries])
   
-
+  const handleDropdown = (Timestamp) => {
+    if(dropdownContent === Timestamp) {
+      setDropdownContent('')
+    } else {
+      setDropdownContent(Timestamp)
+    }
+  }
 
  
   return (
@@ -99,7 +115,7 @@ const Success = (props) => {
 
       </div>
 
-      <div className='select-category section-padding border-b border-zinc-300'>
+      <div className='flex flex-col section-padding border-b border-zinc-300'>
         <p className='pb-4'>Read by category</p>
         <div className='flex gap-0'>
           <div  onClick={() => setActive('month')} >
@@ -112,13 +128,28 @@ const Success = (props) => {
         </div>
       </div>
 
-      <div className='navbar-category section-padding border-b border-zinc-300'>
+      
 
-      </div>
-
-      { active === 'month' && <>
-      {/* month bar */}
+      {mainData.length !== 0 && active === 'month' && <>
+      
       <div className='navbar-month px-6 sm:px-16 lg:px-36 '>
+
+        {/* year bar */}
+        <div className='flex gap-0 w-full items-center overflow-auto scrollbar-hidden'>
+         { 
+          yearList?.map((item, i) => {
+            return (
+              <div key={i} onClick={() => setActiveYear('2023')} >
+                <p className={`py-3 px-7 border-zinc-300 onHover ${activeYear === '2023' ? 'bg-zinc-300': ''}`}>
+                  {item}
+                </p>
+              </div>
+            )
+          })
+          }
+        </div>
+
+        {/* month bar */}
         <div className="flex gap-0 w-full items-center overflow-auto scrollbar-hidden border-b border-zinc-300">
           {
             months?.map(({month, id}) => {
@@ -203,7 +234,7 @@ const Success = (props) => {
 
       
 
-      {active === 'series' && <>
+      {mainData.length !== 0 && active === 'series' && <>
         {/* Series section bar */}
         <div className='px-6 sm:px-16 lg:px-36 '>
             <div className="flex gap-0 w-full items-center overflow-auto scrollbar-hidden border-b border-zinc-300">
@@ -223,59 +254,77 @@ const Success = (props) => {
 
         {/* Series content */}
         <div className="content py-8 section-padding">
-        <div>
-          {
-            (seriesContent && seriesContent !== [] ) && seriesContent.map(({Author, Category, date, Invitation, Power_word_for_today, Prayers, Read_and_think, Scriptures, Scriptures_text, Series_topic, Timestamp, Todays_topic}, index) => {
-              let content = Read_and_think.split('\n')
-              return (
-                <div key={index} className='pb-10'>
-                  <p className='text-zinc-400' >{`Date: ${date}`}</p>
-                  <p className='pt-2 font-bold text-lg capitalize' >{`Series Topic: ${Series_topic}`}</p>
-                  <p className=' font-bold text-lg capitalize' >{`Today's Topic: ${Todays_topic}`}</p>
-                  <p className='pt-1  capitalize' >{`Author: ${Author }`}</p>
-                  <p className='pt-4 font-bold text-zinc-400 text-lg capitalize' >{`Today's Bible Power: ${Scriptures}`}</p>
-                  <p className=' pb-8' >{`Today's Bible Power: ${Scriptures_text}`}</p>
+          <div>
+            {seriesContent ? (seriesContent.length ? seriesContent.map(({Author, Category, date, Invitation, Power_word_for_today, Prayers, Read_and_think, Scriptures, Scriptures_text, Series_topic, Timestamp, Todays_topic}, index) => {
+                let content = Read_and_think.split('\n')
+                return (
+                  <div key={index} className='pb-10 border-b border-zinc-300'>
+                    <div onClick = {() => handleDropdown(Timestamp)}
+                    className='onHover'>
+                      <p className='text-zinc-400' >{`Date: ${date}`}</p>
+                      <p className='pt-2 font-bold text-lg capitalize' >{`Series Topic: ${Series_topic}`}</p>
+                      <p className=' font-bold text-lg capitalize' >{`Today's Topic: ${Todays_topic}`}</p>
+                      <p className='pt-1  capitalize' >{`Author: ${Author }`}</p>
+                    </div>
+                    
+                  {dropdownContent === Timestamp && <div >
+                      <p className='pt-4 font-bold text-zinc-400 text-lg capitalize' >{`Today's Bible Power: ${Scriptures}`}</p>
+                        <p className=' pb-8' >{`Today's Bible Power: ${Scriptures_text}`}</p>
 
-                  <div className='border-b border-zinc-400'>
-                    <p className='font-bold text-zinc-400 text-lg border-b border-zinc-400'>Read and Think</p>
-                    {
-                    content?.map((item, i) => (<p key={i}
-                    className='pt-2'>
-                      {item}
-                    </p>))
-                    }
+                        <div className='border-b border-zinc-400'>
+                          <p className='font-bold text-zinc-400 text-lg border-b border-zinc-400'>Read and Think</p>
+                          {
+                          content?.map((item, i) => (<p key={i}
+                          className='pt-2'>
+                            {item}
+                          </p>))
+                          }
+                        </div>
+
+                        <p className="pt-10 text-zinc-400 font-bold">Say This Prayer</p>
+                        <p className='' >{`Today's Bible Power: ${Prayers}`}</p>
+                        {Invitation && <p className=' pt-2' >{`Today's Bible Power: ${Invitation}`}</p>}
+                        <p className="pt-4 font-bold text-zinc-400">
+                          Power Word for Today: 
+                        </p>
+                        <p>{Power_word_for_today}</p>
+                  </div>}
+                  
                   </div>
-
-                  <p className="pt-10 text-zinc-400 font-bold">Say This Prayer</p>
-                  <p className='' >{`Today's Bible Power: ${Prayers}`}</p>
-                  {Invitation && <p className=' pt-2' >{`Today's Bible Power: ${Invitation}`}</p>}
-                  <p className="pt-4 font-bold text-zinc-400">
-                    Power Word for Today: 
-                  </p>
-                  <p>{Power_word_for_today}</p>
+                )
+              })  :
+              <div>
+                    { 
+                      <div className='py-10 w-full text-lg font-semibold text-zinc-300 items-center'>
+                        Resources are not available for this category. Select another series
+                      </div>
+                    }
+              </div>) : (
+                <div className='h-[50vh] w-full text-2xl font-bold text-zinc-300 section-container justify-center items-center text-center'>
+                  Resources are not available
                 </div>
               )
-            })  
-            // <div>
-            //        { 
-            //           seriesActive && (<div className='py-10 w-full text-lg font-semibold text-zinc-300 items-center'>
-            //           Resources are not available for this date. Select from a Series list.
-            //           <div className="text-black pt-3 font-normal"
-            //           onClick={() => setSeriesActive(!seriesActive)}>
-            //             <OutlineButtonBlack>Select Series</OutlineButtonBlack></div>
-            //         </div>)
-            //        }
-            //      </div>
-          }
+            }
+          </div>
         </div>
-      </div>
-
-        </>
+      </>
       }
 
-      <div className='h-[50vh] w-full text-2xl font-bold text-zinc-300 section-container justify-center items-center text-center'>
-        Resources are not available
-      </div>
+       { 
+        // show this on page load
+        mainData.length !== 0 && active === '' && (
+            <div onClick={() => setActive('month')}
+            className='h-[50vh] w-full text-2xl font-bold text-zinc-300 section-container justify-center items-center text-center'>
+                Load resources
+            </div>)
+
+       } 
+       {
+        mainData.length === 0 && (
+            <div className='h-[50vh] w-full text-2xl font-bold text-zinc-300 section-container justify-center items-center text-center'>
+                Resources not available. Check your network connection
+            </div>)
+      }
     </>
   )
 }
