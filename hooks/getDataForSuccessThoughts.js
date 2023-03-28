@@ -90,10 +90,10 @@ export const getData = async () => {
 //     console.log(err);
 //   }
 
-  // var circularObj = rows;
-  // circularObj.circularRef = circularObj;
-  // circularObj.list = [circularObj, circularObj];
-  // console.log(stringify(circularObj, null, 2));
+// var circularObj = rows;
+// circularObj.circularRef = circularObj;
+// circularObj.list = [circularObj, circularObj];
+// console.log(stringify(circularObj, null, 2));
 
 //   return {
 //     data: data,

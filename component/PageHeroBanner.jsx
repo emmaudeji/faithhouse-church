@@ -21,7 +21,7 @@ const PageHeroBanner = ({heading, pageTitle, image}) => {
         </div>
       </div>
 
-      <div className='right-0 bottom-0 py-6 bg-yellow-500 w-[95%] md:w-[65vw]  absolute pr-6 sm:pr-16 md:pr-36 pl-8 flex items-center rounded-l-full overflow-hidden cursor-pointer hover:scale-105 duration-300'>
+      <div className='right-0 bottom-0 py-6  bg-yellow-500  w-[95%] md:w-[60vw] absolute pr-6 sm:pr-16 md:pr-36 pl-10 md:pl-14 flex items-center rounded-l-full overflow-hidden cursor-pointer hover:scale-105 duration-300'>
         <SuccessThought/>
       </div>
     </div>

@@ -1,4 +1,5 @@
-import {useState, useEffect} from 'react'
+import {useState, useEffect, useCallback} from 'react'
+import { useRouter } from "next/router"
 import PageHeroBanner from '@/component/PageHeroBanner'
 import { months, series } from '@/Data/months'
 import {  getData } from '@/hooks/getDataForSuccessThoughts'
@@ -23,16 +24,26 @@ export const getServerSideProps = async () => {
 const Success = (props) => {
   const {data, err} = props
   const [mainData, setMainData] = useState(data ? data : [])
+  const {query} = useRouter()
+  const monthsArr = months.map(item => (item.month))
+  
 
   const [active, setActive] = useState('')
   const [daysoftheMonth, setDaysoftheMonth] = useState(daylist31);
-  const [activeYear, setActiveYear] = useState('2023')
-  const [activeMonth, setActiveMonth] = useState("March")
-  const [activeDay, setActiveDay] = useState('27')
+  const [activeYear, setActiveYear] = useState(String(new Date().getFullYear()))
+  const [activeMonth, setActiveMonth] = useState(monthsArr[new Date().getMonth()])
+  const [activeDay, setActiveDay] = useState(String(new Date().getDate()))
   const [content, setContent] = useState([])
   const [activeSeries, setActiveSeries] = useState('Success')
   const [seriesContent, setSeriesContent] = useState([])
   const [dropdownContent, setDropdownContent] = useState('')
+
+  useEffect(()=> {
+    if(query.date) {
+      setActiveDay(query.date[0])
+      setActive('month')
+    }
+  }, [query.date])
 
   // generate year list
   const newList = mainData?.map(item => {
@@ -61,7 +72,7 @@ const Success = (props) => {
 
 
   // search for content from data when a date is clicked
-  const handleClickDay = async (day) => {
+  const handleClickDay = useCallback(async (day) => {
     let monthIndex = "" 
     months?.map(item => {
       if(item.month === activeMonth) {
@@ -74,12 +85,13 @@ const Success = (props) => {
     const newcontent = await mainData?.filter(item => item.date === dateString)
     setContent(newcontent)
     // console.log('dateString-', content, dateString, typeof dateString, data[0])
-  }
-
+  }, [activeDay, setActiveDay]
+)
   useEffect(() => {
     handleClickDay(activeDay)
   }, [activeDay])
   
+
 // search content by category view
   // const {f} = getContentByCategory();
   const handleClickSeries = () => {
@@ -92,6 +104,7 @@ const Success = (props) => {
 
   useEffect(() => {
     handleClickSeries()
+    setActive('series')
   }, [activeSeries])
   
   const handleDropdown = (Timestamp) => {
@@ -186,7 +199,7 @@ const Success = (props) => {
       <div className="content py-8 section-padding">
         <div>
           {
-            (content && content !== [] )? content.map(({Author, Category, date, Invitation, Power_word_for_today, Prayers, Read_and_think, Scriptures, Scriptures_text, Series_topic, Timestamp, Todays_topic}, index) => {
+            (content && content.length !== 0 ) ? content.map(({Author, Category, date, Invitation, Power_word_for_today, Prayers, Read_and_think, Scriptures, Scriptures_text, Series_topic, Timestamp, Todays_topic}, index) => {
               let content = Read_and_think.split('\n')
               return (
                 <div key={index} className='pb-10'>
@@ -218,12 +231,12 @@ const Success = (props) => {
               )
             }) : <div>
                    { 
-                      seriesActive && (<div className='py-10 w-full text-lg font-semibold text-zinc-300 items-center'>
+                      <div className='py-10 w-full text-lg font-semibold text-zinc-300 items-center'>
                       Resources are not available for this date. Select from a Series list.
                       <div className="text-black pt-3 font-normal"
-                      onClick={() => setSeriesActive(!seriesActive)}>
+                      onClick={() => setActiveSeries(series[1].category)}>
                         <OutlineButtonBlack>Select Series</OutlineButtonBlack></div>
-                    </div>)
+                    </div>
                    }
                  </div>
           }
