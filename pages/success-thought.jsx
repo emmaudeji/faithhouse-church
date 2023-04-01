@@ -14,7 +14,7 @@ export const getServerSideProps = async () => {
   return {
     props: {
       data: data ?  data : 'no data. check api status', 
-      err
+      err,
     }
   }  
 }
@@ -23,12 +23,13 @@ export const getServerSideProps = async () => {
 
 const Success = (props) => {
   const {data, err} = props
-  const [mainData, setMainData] = useState(data ? data : [])
+  const [mainData, setMainData] = useState(data)
   const {query} = useRouter()
   const monthsArr = months.map(item => (item.month))
   
+  console.log('mainData', mainData, 'err---', err,  'data---', data, 'today', query.date[0]);
 
-  const [active, setActive] = useState('')
+  const [active, setActive] = useState('month')
   const [daysoftheMonth, setDaysoftheMonth] = useState(daylist31);
   const [activeYear, setActiveYear] = useState(String(new Date().getFullYear()))
   const [activeMonth, setActiveMonth] = useState(monthsArr[new Date().getMonth()])
@@ -43,13 +44,14 @@ const Success = (props) => {
       setActiveDay(query.date[0])
       setActive('month')
     }
-  }, [query.date])
+  }, [query.date[0]])
+ 
 
   // generate year list
-  const newList = mainData?.map(item => {
+  const newList = mainData && mainData.length && mainData.map(item => {
     return {name: String(new Date(item.date).getFullYear())}
   })
-  const yearList = newList?.reduce((acc, curr) => {
+  const yearList = newList && newList.length && newList.reduce((acc, curr) => {
     if(!acc.includes(curr.name)){acc.push(curr.name)}
     return acc
   }, []).sort()
@@ -82,7 +84,7 @@ const Success = (props) => {
       }
     })
     const dateString = monthIndex + '/' + day + '/' + activeYear;
-    const newcontent = await mainData?.filter(item => item.date === dateString)
+    const newcontent = await mainData && mainData.length && mainData.filter(item => item.date === dateString)
     setContent(newcontent)
     // console.log('dateString-', content, dateString, typeof dateString, data[0])
   }, [activeDay, setActiveDay]
@@ -95,7 +97,7 @@ const Success = (props) => {
 // search content by category view
   // const {f} = getContentByCategory();
   const handleClickSeries = () => {
-    const result = mainData.filter(item => {
+    const result = mainData?.filter(item => {
       return item.Category.includes(activeSeries)
     })
     setSeriesContent(result)
@@ -143,7 +145,7 @@ const Success = (props) => {
 
       
 
-      {mainData.length !== 0 && active === 'month' && <>
+      {mainData && mainData.length !== 0 && active === 'month' && <>
       
       <div className='navbar-month px-6 sm:px-16 lg:px-36 '>
 
@@ -247,7 +249,7 @@ const Success = (props) => {
 
       
 
-      {mainData.length !== 0 && active === 'series' && <>
+      {mainData && mainData.length !== 0 && active === 'series' && <>
         {/* Series section bar */}
         <div className='px-6 sm:px-16 lg:px-36 '>
             <div className="flex gap-0 w-full items-center overflow-auto scrollbar-hidden border-b border-zinc-300">
@@ -325,7 +327,7 @@ const Success = (props) => {
 
        { 
         // show this on page load
-        mainData.length !== 0 && active === '' && (
+        mainData && mainData.length !== 0 && active === '' && (
             <div onClick={() => setActive('month')}
             className='h-[50vh] w-full text-2xl font-bold text-zinc-300 section-container justify-center items-center text-center'>
                 Load resources
@@ -333,7 +335,7 @@ const Success = (props) => {
 
        } 
        {
-        mainData.length === 0 && (
+        mainData && mainData.length === 0 && (
             <div className='h-[50vh] w-full text-2xl font-bold text-zinc-300 section-container justify-center items-center text-center'>
                 Resources not available. Check your network connection
             </div>)

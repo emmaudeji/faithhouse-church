@@ -9,8 +9,9 @@ import Testimonial from "@/component/Home/Testimonial";
 import Community from "@/component/Home/Community";
 import Organization from "@/component/Home/Organization";
 import Newsletter from "@/component/Home/Newsletter";
+import { client } from "@/lib/client";
 
-export default function Home() {
+export default function Home({ testimonyList }) {
   return (
     <>
       <HeroBanner />
@@ -25,7 +26,7 @@ export default function Home() {
       <WhyUs2 />
       <Resources />
       <Team />
-      <Testimonial />
+      <Testimonial testimonyList={testimonyList} />
       <Community
         heading="Volunteer Today"
         text="One of the central ways we grow as disciples of Jesus is by having intentional relationships with people who share the same goal.Join any of our community today and let’s grow together."
@@ -34,3 +35,12 @@ export default function Home() {
     </>
   );
 }
+
+export const getServerSideProps = async () => {
+  const query = '*[_type == "testimonySchema"]';
+  const testimonyList = await client.fetch(query);
+
+  return {
+    props: { testimonyList },
+  };
+};

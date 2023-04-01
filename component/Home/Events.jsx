@@ -31,7 +31,7 @@ const Events = () => {
                     address={address}
                     theme={theme}
                     emphasis={emphasis}
-                    link='/events'
+                    link={`/events/${title}`}
                   />
                 </div>
               )

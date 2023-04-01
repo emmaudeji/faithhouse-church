@@ -1,9 +1,16 @@
+import { useState } from "react";
 import OutlineButtonBlack from "../buttons/OutlineButtonBlack";
 import Link from "next/link";
 import TestimonyCard from "../cards/TestimonyCard";
 import { testimonies } from "@/Data/testimonies";
+import { client } from "@/lib/client";
 
-const Testimonial = () => {
+const Testimonial = ({testimonyList}) => {
+  // const reduceList = testimonyList?.slice(0,5)
+  const [testimonials, setTestimonials] = useState(testimonyList)
+
+  console.log( testimonials, testimonies, testimonyList)
+
   return (
     <div className="w-full flex px-6 sm:px-16 lg:px-36 flex-col py-24 bg-yellow-500">
       {/* heading */}
@@ -19,11 +26,20 @@ const Testimonial = () => {
       <div className="overflow-auto scrollbar-hidden pb-2">
         <div className="flex gap-6 ">
           {
-            testimonies?.map(({id, name, testimony}) => {
+            testimonials ? testimonials.map(({title, highlight, _id, testifier,}) => {
+              return (
+                <div key={_id}>
+                  <TestimonyCard
+                    name= {testifier} testimony={highlight} link={_id} title={title}
+                  />
+                </div>
+              )
+            }) : 
+            testimonies.map(({ testimony, id, name,}) => {
               return (
                 <div key={id}>
                   <TestimonyCard
-                    name= {name} testimony={testimony}
+                    name= {name} testimony={testimony} 
                   />
                 </div>
               )
@@ -53,5 +69,16 @@ const Testimonial = () => {
     </div>
   )
 }
+
+export const getServerSideProps = async () => {
+  const query = '*[_type == "testimonySchema"]';
+  const testimonyList = await client.fetch(query);
+
+  return {
+    props: { testimonyList },
+  };
+};
+
+
 
 export default Testimonial

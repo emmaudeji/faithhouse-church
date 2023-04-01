@@ -1,9 +1,7 @@
 import { GoogleSpreadsheet } from "google-spreadsheet";
 
-// var stringify = require("json-stringify-safe");
-
 export const getData = async () => {
-  let data = "empty data";
+  let data = "";
   let err = "no error report";
 
   try {
@@ -17,16 +15,8 @@ export const getData = async () => {
     });
 
     await doc.loadInfo(); // loads document properties and worksheets
-    // console.log(doc.title);
 
     const sheet = doc.sheetsByIndex[0]; // or use doc.sheetsById[id] or doc.sheetsByTitle[title]
-
-    // console.log(sheet.title);
-    // console.log(sheet.rowCount);
-
-    // adding / removing sheets
-    // const newSheet = await doc.addSheet({ title: 'hot new sheet!' });
-    // await newSheet.delete();
 
     // read rows
     const rows = await sheet.getRows(); // can pass in { limit, offset }
@@ -52,21 +42,7 @@ export const getData = async () => {
         Scriptures: row.Scriptures,
       });
     });
-
     data = JSON.parse(JSON.stringify(answer));
-    // data = rows[0].Date;
-
-    // const sheet = await doc.addSheet({ headerValues: ["name", "email"] });
-    // const larryRow = await sheet.addRow({
-    //   name: "Larry Page",
-    //   email: "larry@google.com",
-    // });
-    // const moreRows = await sheet.addRows([
-    //   { name: "Sergey Brin", email: "sergey@google.com" },
-    //   { name: "Eric Schmidt", email: "eric@google.com" },
-    // ]);
-    // const rows = await sheet.getRows();
-    // console.log(rows[0].name);
   } catch (error) {
     err = JSON.stringify(error);
   }
@@ -74,29 +50,15 @@ export const getData = async () => {
   return { data, err };
 };
 
-// using sheets.best
-// export const getDataFromSheet = async () => {
-//   let data = "no data";
-//   let err = "no error signal ";
-//   try {
-//     const res = await fetch(
-//       `https://sheet.best/api/sheets/d0cbb106-1d12-4539-b49d-73f5f875059e`
-//     );
-//     if (res) {
-//       data = await res.json();
-//     }
-//   } catch (err) {
-//     err = err;
-//     console.log(err);
-//   }
+export const getDataFaithhouse = async () => {
+  let data = "empty data";
+  let err = "no error report";
+  let event = "no event";
 
-// var circularObj = rows;
-// circularObj.circularRef = circularObj;
-// circularObj.list = [circularObj, circularObj];
-// console.log(stringify(circularObj, null, 2));
+  try {
+  } catch (error) {
+    err = JSON.stringify(error);
+  }
 
-//   return {
-//     data: data,
-//     err,
-//   };
-// };
+  return { data, err, event };
+};
