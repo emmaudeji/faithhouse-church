@@ -37,7 +37,7 @@ const MonthDeclaration = () => {
               <div key={i} 
               onClick = {() => handleClick(i)}
               className={` px-2  w-48 h-full text-center cursor-pointer hover:bg-zinc-300 duration-500 ${(activeMonth === i) ? 'bg-zinc-300 ' : null} `}>
-                {item}
+                {item.month}
               </div>
             )
           })
