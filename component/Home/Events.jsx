@@ -1,6 +1,7 @@
 import EventCard from "../cards/EventCard"
 import { eventList } from "@/Data/eventList"
 import OutlineButtonBlack from "../buttons/OutlineButtonBlack";
+import Link from "next/link";
 
 
 const Events = () => {
@@ -46,12 +47,16 @@ const Events = () => {
         <div className="flex gap-4 text-sm">
           <div>
             <OutlineButtonBlack>
-              View Events
+              <Link href='/events'>
+                View Events
+              </Link>
             </OutlineButtonBlack>
           </div>
           <div className="">
              <OutlineButtonBlack>
-              Register for Event
+              <Link href='/events'>
+                Register for Event
+              </Link>
             </OutlineButtonBlack>
           </div>
         </div>

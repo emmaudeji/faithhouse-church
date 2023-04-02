@@ -27,7 +27,7 @@ const Success = (props) => {
   const {query} = useRouter()
   const monthsArr = months.map(item => (item.month))
   
-  console.log('mainData', mainData, 'err---', err,  'data---', data, 'today', query.date[0]);
+  console.log('mainData', mainData, 'err---', err,  'data---', data, 'today', query.date && query.date[0], 'dateee', String(new Date().getDate()), 'dayyyyyy');
 
   const [active, setActive] = useState('month')
   const [daysoftheMonth, setDaysoftheMonth] = useState(daylist31);
@@ -44,7 +44,7 @@ const Success = (props) => {
       setActiveDay(query.date[0])
       setActive('month')
     }
-  }, [query.date[0]])
+  }, [])
  
 
   // generate year list
