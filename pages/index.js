@@ -11,7 +11,7 @@ import Organization from "@/component/Home/Organization";
 import Newsletter from "@/component/Home/Newsletter";
 import { client } from "@/lib/client";
 
-export default function Home({ testimonyList }) {
+export default function Home({ testimonyList, eventData }) {
   return (
     <>
       <HeroBanner />
@@ -21,7 +21,7 @@ export default function Home({ testimonyList }) {
         img="men-in-worship.jpg"
         showBtn={true}
       />
-      <Events />
+      <Events eventData={eventData} />
       <Services />
       <WhyUs2 />
       <Resources />
@@ -40,7 +40,10 @@ export const getServerSideProps = async () => {
   const query = '*[_type == "testimonySchema"]';
   const testimonyList = await client.fetch(query);
 
+  const queryEvents = '*[_type == "eventSchema"]';
+  const eventData = await client.fetch(queryEvents);
+
   return {
-    props: { testimonyList },
+    props: { testimonyList, eventData },
   };
 };

@@ -50,7 +50,7 @@ export const generateStaticEvents = () => {
   };
 };
 
-// generate static event list
+// generate dynamic event list
 export const generateDynamicEvents = () => {
   let dynamicEvents = "";
 

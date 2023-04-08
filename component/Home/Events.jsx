@@ -1,10 +1,15 @@
+import { useState } from "react";
 import EventCard from "../cards/EventCard"
 import { eventList } from "@/Data/eventList"
 import OutlineButtonBlack from "../buttons/OutlineButtonBlack";
 import Link from "next/link";
+import { urlFor } from '@/lib/client'
 
 
-const Events = () => {
+const Events = ({eventData}) => {
+  console.log('eventData--', eventData)
+
+  const [events, setEvents] = useState(eventData ? eventData : eventList)
 
   return (
     <div className="w-full flex px-6 sm:px-16 lg:px-36 flex-col pt- 14 pb-24 ">
@@ -21,15 +26,16 @@ const Events = () => {
       <div className="overflow-auto mx-1 pb-2 scrollbar-hidden">
         <div className="flex gap-6 ">
           {
-            eventList?.map(({id, image, title, eventDate, eventTime, address, theme, emphasis}) => {
+            events?.map(({_id, eventImage, image, title, eventDate, time, venue, theme, emphasis}) => {
+              
               return (
-                <div key={id}>
+                <div key={_id}>
                   <EventCard
-                    image={image}
+                    image={eventImage ? urlFor(eventImage) : image}
                     title={title}
-                    eventDate={eventDate.toDateString()}
-                    eventTime={eventTime}
-                    address={address}
+                    eventDate={eventDate}
+                    eventTime={time}
+                    address={venue}
                     theme={theme}
                     emphasis={emphasis}
                     link={`/events/${title}`}

@@ -5,6 +5,7 @@ import {FaMapMarkerAlt, FaRegClock} from 'react-icons/fa'
 import {MdDateRange} from 'react-icons/md'
 
 
+
 const EventCard = ({image, title, eventDate, eventTime, address, theme, emphasis, link}) => {
   return (
     <div className='h-[22rem] relative w-[16rem] rounded'>
@@ -70,3 +71,4 @@ const EventCard = ({image, title, eventDate, eventTime, address, theme, emphasis
 }
 
 export default EventCard
+
