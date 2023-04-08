@@ -25,7 +25,7 @@ const getEventsData = (eventData) => {
     dynamicEvents.push(...result)
 
     data = dynamicEvents
-  } catch (error) {s
+  } catch (error) {
     err = error;
   }
 

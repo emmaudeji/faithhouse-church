@@ -182,6 +182,14 @@ export default {
     },
 
     {
+      name: 'content',
+      title: 'About Event',
+      description: `introduce and make content about this event`,
+      type: 'array',
+      of: [{type: 'block'}],
+    },
+
+    {
       name: 'afterEventNews',
       title: 'After Event News',
       description: `You can fill this now or come back to edit this form if you intend to share news and highlight after this event has taking place. Add details in paragraphs to enable better presentation on the website`,
@@ -192,9 +200,11 @@ export default {
     {
       name: 'removeEventNews',
       title: 'Remove Event News',
-      description: `When will you want the above news to stop displaying. You must not answer this. The website will automatically remove the news 2 weeks after the event date.`,
-      type: 'array',
-      of: [{type: 'block'}],
+      type: 'date',
+      description: 'When should this news stop displaying?',
+      options: {
+        dateFormat: 'DD-MM-YYYY',
+      },
     },
   ],
 }

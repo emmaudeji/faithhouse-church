@@ -55,7 +55,7 @@ const EventCard = ({image, title, eventDate, eventTime, address, theme, emphasis
                 <p>{address}</p>
               </div>
               <SmallBtnOutlineBlack>
-                <Link href={link}>
+                <Link href={{pathname: link, query: {keyword: title}}}>
                   VIEW
                 </Link>
               </SmallBtnOutlineBlack>

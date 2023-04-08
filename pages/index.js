@@ -8,7 +8,6 @@ import Team from "@/component/Home/Team";
 import Testimonial from "@/component/Home/Testimonial";
 import Community from "@/component/Home/Community";
 import Organization from "@/component/Home/Organization";
-import Newsletter from "@/component/Home/Newsletter";
 import { client } from "@/lib/client";
 
 export default function Home({ testimonyList, eventData }) {

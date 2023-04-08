@@ -40,7 +40,7 @@ const Events = ({eventData}) => {
                     address={venue}
                     theme={theme}
                     emphasis={emphasis}
-                    link={`/events/${title}`}
+                    link={`/events`}
                   />
                 </div>
               )
