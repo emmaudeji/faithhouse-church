@@ -9,7 +9,7 @@ const Testimonial = ({testimonyList}) => {
   // const reduceList = testimonyList?.slice(0,5)
   const [testimonials, setTestimonials] = useState(testimonyList)
 
-  console.log( testimonials, testimonies, testimonyList)
+  // console.log( testimonials, testimonies, testimonyList)
 
   return (
     <div className="w-full flex px-6 sm:px-16 lg:px-36 flex-col py-24 bg-yellow-500">

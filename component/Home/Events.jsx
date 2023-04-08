@@ -4,12 +4,14 @@ import { eventList } from "@/Data/eventList"
 import OutlineButtonBlack from "../buttons/OutlineButtonBlack";
 import Link from "next/link";
 import { urlFor } from '@/lib/client'
+import getEventsData from "@/hooks/getEventsData";
 
 
 const Events = ({eventData}) => {
-  console.log('eventData--', eventData)
 
-  const [events, setEvents] = useState(eventData ? eventData : eventList)
+  const {data, err} = getEventsData(eventData)
+
+  // console.log('eventData--', eventData, 'data--', data, 'err--', err)
 
   return (
     <div className="w-full flex px-6 sm:px-16 lg:px-36 flex-col pt- 14 pb-24 ">
@@ -26,13 +28,13 @@ const Events = ({eventData}) => {
       <div className="overflow-auto mx-1 pb-2 scrollbar-hidden">
         <div className="flex gap-6 ">
           {
-            events?.map(({_id, eventImage, image, title, eventDate, time, venue, theme, emphasis}) => {
+            data?.map(({_id, eventImage, image, title, other_event, eventDate, time, venue, theme, emphasis}) => {
               
               return (
                 <div key={_id}>
                   <EventCard
                     image={eventImage ? urlFor(eventImage) : image}
-                    title={title}
+                    title={title  ? title : other_event}
                     eventDate={eventDate}
                     eventTime={time}
                     address={venue}

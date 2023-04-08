@@ -37,6 +37,8 @@ export default {
           {title: `Leaders Retreat`, value: `Leaders Retreat`},
           {title: `Christmas Service`, value: `Christmas Service`},
           {title: `New Year Eve`, value: `New Year Eve`},
+          {title: `Easter Zoe Convention`, value: `Easter Zoe Convention`},
+          {title: `Communion Service`, value: `Communion Service`},
         ],
       },
     },
@@ -66,13 +68,17 @@ export default {
     {
       title: 'Event Date',
       name: 'eventDate',
-      type: 'datetime',
+      type: 'date',
       options: {
-        dateFormat: 'YYYY-MM-DD',
-        timeFormat: 'HH:mm',
-        timeStep: 10,
-        calendarTodayLabel: 'Today',
+        dateFormat: 'DD-MM-YYYY',
       },
+    },
+
+    {
+      name: 'time',
+      title: 'Event Time',
+      type: 'string',
+      description: 'When is the event holding, e.g 8.00am.',
     },
 
     {
