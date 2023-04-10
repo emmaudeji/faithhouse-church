@@ -31,6 +31,6 @@ export const mobilenavLinks = [
   {
     id: 7,
     title: <GiveButton />,
-    link: "/partnership/#give",
+    link: "/give",
   },
 ];

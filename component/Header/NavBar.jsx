@@ -34,7 +34,7 @@ const NavBar = ({post}) => {
       </div>
 
       <div className="giveButton h-16 flex items-center px-6 hover:scale-110 duration-300 cursor-pointer">
-        <GiveButton/>
+        <Link href={'/give'}> <GiveButton/> </Link> 
       </div>
     </div>
   )
