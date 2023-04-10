@@ -1,18 +1,31 @@
-import React, { useState, useEffect } from "react" ;
+import  { useState, useEffect,  } from "react" ;
 import {  PayPalButtons } from "@paypal/react-paypal-js";
 import { OffereingType } from "@/Data/offeringType";
-
+import Paystack from "@/Payment/Paystack";
+import { accountDetails } from "@/Data/accountDetails";
 
 import CreatableSelect from 'react-select/creatable';
 import makeAnimated from 'react-select/animated';
 
 
 const Checkout = () => {
-    const [show, setShow] = useState(false);
+    
     const [success, setSuccess] = useState(false);
     const [ErrorMessage, setErrorMessage] = useState("");
     const [orderID, setOrderID] = useState(false);
     const [offering, setOffering] = useState([])
+    const [payStackBtn, setPayStackBtn] = useState('')
+
+    const handleDropdown = (param) => {
+        if(!payStackBtn && param === 'paystack') {
+            setPayStackBtn('paystack')
+        } else if(!payStackBtn && param === 'bank_transfer') {
+            setPayStackBtn('bank_transfer')
+        } else {
+            setPayStackBtn('')
+        }
+    }
+
     let order = []
 
     const animatedComponents = makeAnimated();
@@ -33,7 +46,7 @@ const Checkout = () => {
         return actions.order.create({
             purchase_units: [
                 {
-                    description: order,
+                    description: String(order),
                     amount: {
                         currency_code: "USD",
                         value: 20,
@@ -66,35 +79,21 @@ const Checkout = () => {
         }
     },[success]);
 
-    console.log('offering', order)
+
+
     return (
         
             <div className="section-padding grid pt-32 pb-16 justify-center items-center">
                 <div className="sm:w-[500px] md:w-[700px] grid gap-2 ">
                    
 
-                        
                             <h1 className="font-bold text-2xl text-zinc-500">
                                 Give with joy
                             </h1>
                             <p>
                                 We are committed to transforming our society with the gospel of the Kingdom of God. Partner with us to get this Gospel to the unreached.
                             </p>
-                            {/* select offfering type */}
-                            {/* <div className="my-4 w-full rounded-full border border-black p-6">
-                                <select className="w-full bg-white " name="" id=""
-                                    onChange={(e) => setOffering(e.target.value)}>
-                                    <option  className="font-bold text-zinc-500" value="">{'Select offering type '}</option>
-                                    {
-                                        OffereingType?.map(({id, label}) => {
-                                            return (
-                                                <option key={id} value=''>{label}</option>
-                                            )
-                                        })
-                                    }
-            
-                                </select>
-                            </div> */}
+                            
 
                             <div className="py-4 relative z-50">
                                 <h2 className="font-bold pb-2">Select offering type or define your purpose of giving by typing a new label. 
@@ -123,8 +122,69 @@ const Checkout = () => {
                                 />
                             </div>
 
+                            <div>
+                            <div onClick={() => handleDropdown('paystack')}
+                            className='mb-6 bg-blue-700 text-white rounded-md p-4 w-full cursor-pointer hover:bg-blue-800 duration-500'>
+                                    <div className="text-center w-full">
+                                        Pay with Paystack
+                                    </div>
+                            </div>
+                            </div>
+                            
+                            {
+                                payStackBtn === 'paystack' ? <div className="pb-6 "><Paystack offering={String(order)} /></div> : null
+                            }
+
+
+                            
+                            <div>
+                                <div onClick={() => handleDropdown('bank_transfer')}
+                                className='mb-6 bg-red-700 text-white rounded-md p-4 w-full cursor-pointer hover:bg-red-800 duration-500'>
+                                        <div className="text-center w-full">
+                                            Pay with Bank transfer
+                                        </div>
+                                </div>
+                            </div>
+
+                            {
+                                payStackBtn === 'bank_transfer' ? (
+                                    <div className="grid gap-3 pb-6">
+                                {
+                                    accountDetails?.map(({id, account_number, bank, account_name}) => {
+                                        return (
+                                            <div key={id} className="pl-4 flex gap-4 sm:flex-row flex-col">
+                                                <div className="ac1">
+                                                    <div className="flex gap-2">
+                                                    <p className="font-semibold text-zinc-500">Account name:</p>
+                                                        <p className="flex "> {account_name} </p>
+                                                    </div>
+                                                    <div className="flex gap-2">
+                                                        <p className="font-semibold text-zinc-500">Account number:</p>
+                                                        <p className="flex "> {account_number}</p>
+                                                    </div>
+                                                    <div className="flex gap-2">
+                                                        <p className="font-semibold text-zinc-500">Bank</p>
+                                                        <p className="flex "> {bank}</p>
+                                                    </div>
+                                                    </div>
+                                            </div>
+                                        )
+                                    })
+                                }
+                               
+                                
+                            </div>
+                                ) : null
+                            }
+
+
+                            <div className="mb-10 border-b border-zinc-300">
+                                {' '}
+                            </div>
+
+
                             <h4 className="font-bold text-lg text-zinc-500">
-                                Learn about the partnership type
+                                Learn about our giving types
                             </h4>
                             <div className="grid gap-1 ">
                                 {
@@ -138,6 +198,7 @@ const Checkout = () => {
                                     })
                                 }
                             </div>
+
                    
                         <p className="pt-10">
                             Thank you for making your donations. God loves a cheerful giver.

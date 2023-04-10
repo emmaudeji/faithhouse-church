@@ -4,6 +4,7 @@ import NavBar from "./NavBar";
 import { AiOutlineMenu, AiOutlineClose, AiOutlineSearch } from "react-icons/ai";
 import Link from "next/link";
 import Searchbox from "../Searchbox";
+import GiveButton from "../buttons/GiveButton";
 
 const Header = () => {
   const [click, setClick] = useState(false);
@@ -39,6 +40,7 @@ const Header = () => {
 
         {/* control */}
         <div className="flex gap-4 z-30">
+        <Link href={'/give'}> <GiveButton text='sm'/> </Link> 
           {/* search bar control */}
           <div onClick={() => setClick(false)}>
             <div
