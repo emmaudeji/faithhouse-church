@@ -39,7 +39,7 @@ const Header = () => {
         </div>
 
         {/* control */}
-        <div className="flex gap-4 z-30">
+        <div className="flex gap-3 z-70">
         <Link href={'/give'}> <GiveButton text='sm'/> </Link> 
           {/* search bar control */}
           <div onClick={() => setClick(false)}>

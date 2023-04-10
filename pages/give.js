@@ -95,7 +95,7 @@ const Checkout = () => {
                             </p>
                             
 
-                            <div className="py-4 relative z-50">
+                            <div className="py-4 relative ">
                                 <h2 className="font-bold pb-2">Select offering type or define your purpose of giving by typing a new label. 
                                 You can enter multiple types</h2>
                   

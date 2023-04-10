@@ -12,7 +12,7 @@ const Layout = ({children}) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <script src="https://js.paystack.co/v1/inline.js"></script> 
       </Head>
-      <PayPalScriptProvider options={{ "client-id": process.env.CLIENT_ID}}>
+      <PayPalScriptProvider options={{ "client-id": 'AdO9G9kMGsqxZaGTg8zYAZ9jJaOAKEaEYC8TBHvvOC3yRUY7li2fbQXrWMoIHG35Ost68nPWuvtWWCGN'}}>
         <Header/>
           {children}
         <Footer/>
