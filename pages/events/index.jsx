@@ -10,7 +10,9 @@ import {MdDateRange} from 'react-icons/md'
 import getEventsData from '../../hooks/getEventsData'
 // import { spring } from 'framer-motion';
 
-const events = ({eventData}) => {
+const events = ({eventData, fetchError}) => {
+  fetchError.length && console.log(fetchError)
+
   const {query} = useRouter()
   
   const {data, err} = getEventsData(eventData);
@@ -162,14 +164,19 @@ const events = ({eventData}) => {
 
 
 export const getServerSideProps = async () => {
-  const query = '*[_type == "eventSchema"]';
-  const eventData = await client.fetch(query);
 
-  // const bannerQuery = '*[_type == "banner"]';
-  // const bannerData = await client.fetch(bannerQuery);
+  let eventData = []
+  let fetchError = []
+
+  try {
+    const queryEvents = '*[_type == "eventSchema"]';
+    eventData = await client.fetch(queryEvents);
+  } catch (error) {
+    fetchError.push({eventSchema: JSON.stringify(error)})
+  }
 
   return {
-    props: { eventData },
+    props: { eventData, fetchError },
   };
 };
 

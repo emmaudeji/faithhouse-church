@@ -10,7 +10,9 @@ import Community from "@/component/Home/Community";
 import Organization from "@/component/Home/Organization";
 import { client } from "@/lib/client";
 
-export default function Home({ testimonyList, eventData, heroBannerData }) {
+export default function Home({ testimonyList, eventData, heroBannerData, fetchError }) {
+  fetchError.length && console.log(fetchError)
+
   return (
     <>
       <HeroBanner heroBannerData={heroBannerData}/>
@@ -36,16 +38,34 @@ export default function Home({ testimonyList, eventData, heroBannerData }) {
 }
 
 export const getServerSideProps = async () => {
-  const query = '*[_type == "testimonySchema"]';
-  const testimonyList = await client.fetch(query);
+  let testimonyList = []
+  let eventData = []
+  let heroBannerData = []
 
-  const queryEvents = '*[_type == "eventSchema"]';
-  const eventData = await client.fetch(queryEvents);
+  let fetchError = []
 
-  const heroBanner = '*[_type == "heroBanner"]';
-  const heroBannerData = await client.fetch(heroBanner);
+  try {
+    const query = '*[_type == "testimonySchema"]';
+    testimonyList = await client.fetch(query);
+  } catch (error) {
+    fetchError.push({testimonySchema: JSON.stringify(error)})
+  }
+
+  try {
+    const queryEvents = '*[_type == "eventSchema"]';
+    eventData = await client.fetch(queryEvents);
+  } catch (error) {
+    fetchError.push({eventSchema: JSON.stringify(error)})
+  }
+
+  try {
+    const heroBanner = '*[_type == "heroBanner"]';
+    heroBannerData = await client.fetch(heroBanner);
+  } catch (error) {
+    fetchError.push({heroBanner: JSON.stringify(error)})
+  }
 
   return {
-    props: { testimonyList, eventData, heroBannerData },
+    props: { testimonyList, eventData, heroBannerData, fetchError },
   };
 };

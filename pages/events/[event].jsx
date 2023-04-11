@@ -5,12 +5,12 @@ import { useRouter } from 'next/router';
 import OutlineButtonBlack from '@/component/buttons/OutlineButtonBlack';
 import Events from '@/component/Home/Events';
 
-const event = ({eventData}) => {
+const event = ({eventData, fetchError}) => {
  
 
   const {query} = useRouter()
 
-  console.log('eventData-----', query.keyword);
+  console.log('eventData-----', query.keyword, 'fetchError', fetchError);
 
   return (
     <>
@@ -78,15 +78,20 @@ const event = ({eventData}) => {
 
 
 export const getServerSideProps = async () => {
-  const query = '*[_type == "eventSchema"]';
-  const eventData = await client.fetch(query);
+  let eventData = []
+  let fetchError = []
 
-  // const bannerQuery = '*[_type == "banner"]';
-  // const bannerData = await client.fetch(bannerQuery);
+  try {
+    const queryEvents = '*[_type == "eventSchema"]';
+    eventData = await client.fetch(queryEvents);
+  } catch (error) {
+    fetchError.push({eventSchema: JSON.stringify(error)})
+  }
 
   return {
-    props: { eventData },
+    props: { eventData, fetchError },
   };
 };
+
 
 export default event

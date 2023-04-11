@@ -1,15 +1,17 @@
 import { useState } from "react";
 import ResourcesHeader from "@/component/ResourcesPage/ResourcesHeader";
 import NotAvailable from "@/component/NotAvailable";
+import { useRouter } from "next/router";
+
+
 
 
 const PrayerPoints = () => {
-  const [active, setActive] = useState('Prophetic Prayers')
+  const path = useRouter().pathname.split('/');
   return (
     <>
-      <ResourcesHeader 
-      setActive={setActive}
-      active={active}/>
+      <ResourcesHeader path={path}
+      />
 
     <NotAvailable text='Resources not available'/>
 

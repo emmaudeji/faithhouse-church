@@ -23,7 +23,7 @@ const Newsletter = () => {
           <h3 className="font-bold text-2xl">Partner and Give</h3>
           <p className="py-2">We are committed to transforming our society with the gospel of the Kingdom of God. Partner with us to get this Gospel to the unreached. </p>
           <OutlineButtonBlack>
-            <Link href='/partnership'>
+            <Link href='/give'>
               Find out more
             </Link>
           </OutlineButtonBlack>

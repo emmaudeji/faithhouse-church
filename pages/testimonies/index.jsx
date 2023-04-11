@@ -6,7 +6,8 @@ import SectionTitleBar from "@/component/cards/SectionTitleBar";
 import SectionCard from "@/component/cards/SectionCard";
 
 
-const index = ({ testimonyList }) => { 
+const index = ({ testimonyList, fetchError }) => { 
+  fetchError.length && console.log(fetchError)
   const categoryList = [ 'Healing', 'Business Breakthrough', 'Success', 'Deliverance', 'Transformation', 'Financial Favour']
 
 
@@ -110,14 +111,20 @@ const index = ({ testimonyList }) => {
 };
 
 export const getServerSideProps = async () => {
-  const query = '*[_type == "testimonySchema"]';
-  const testimonyList = await client.fetch(query);
 
-  // const bannerQuery = '*[_type == "banner"]';
-  // const bannerData = await client.fetch(bannerQuery);
+  let testimonyList = []
+
+  let fetchError = []
+
+  try {
+    const query = '*[_type == "testimonySchema"]';
+    testimonyList = await client.fetch(query);
+  } catch (error) {
+    fetchError.push({testimonySchema: JSON.stringify(error)})
+  }
 
   return {
-    props: { testimonyList },
+    props: { testimonyList, fetchError},
   };
 };
 

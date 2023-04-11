@@ -13,7 +13,7 @@ export const getServerSideProps = async () => {
 
   return {
     props: {
-      data: data ?  data : 'no data. check api status', 
+      data,
       err,
     }
   }  
@@ -23,7 +23,7 @@ export const getServerSideProps = async () => {
 
 const Success = (props) => {
   const {data, err} = props
-  const [mainData, setMainData] = useState(data)
+  const [mainData, setMainData] = useState( data && data !== undefined ? data : [])
   const {query} = useRouter()
   const monthsArr = months.map(item => (item.month))
   
@@ -48,7 +48,7 @@ const Success = (props) => {
  
 
   // generate year list
-  const newList = mainData && mainData.length && mainData.map(item => {
+  const newList = mainData && mainData.length && mainData?.map(item => {
     return {name: String(new Date(item.date).getFullYear())}
   })
   const yearList = newList && newList.length && newList.reduce((acc, curr) => {

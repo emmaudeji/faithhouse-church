@@ -1,7 +1,7 @@
 import { GoogleSpreadsheet } from "google-spreadsheet";
 
 export const getData = async () => {
-  let data = "";
+  let data = null;
   let err = "no error report";
 
   try {
@@ -50,15 +50,15 @@ export const getData = async () => {
   return { data, err };
 };
 
-export const getDataFaithhouse = async () => {
-  let data = "empty data";
-  let err = "no error report";
-  let event = "no event";
+// export const getDataFaithhouse = async () => {
+//   let data = "empty data";
+//   let err = "no error report";
+//   let event = "no event";
 
-  try {
-  } catch (error) {
-    err = JSON.stringify(error);
-  }
+//   try {
+//   } catch (error) {
+//     err = JSON.stringify(error);
+//   }
 
-  return { data, err, event };
-};
+//   return { data, err, event };
+// };

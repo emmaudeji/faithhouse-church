@@ -1,14 +1,16 @@
 import { useState } from "react";
 import ResourcesHeader from "@/component/ResourcesPage/ResourcesHeader";
+import { useRouter } from "next/router";
 
 
 const YearDeclaration = () => {
-  const [active, setActive] = useState('year Declaration')
+  const path = useRouter().pathname.split('/');
+  
   return (
     <>
-      <ResourcesHeader 
-      setActive={setActive}
-      active={active}/>
+      <ResourcesHeader path={path}
+      />
+
 
       <div className="py-14">
         <div className="heading">

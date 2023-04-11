@@ -1,29 +1,32 @@
-export const resouces = [
+export const resources = [
   {
     id: 0,
+    // path: 'year-declaration',
     label: "year Declaration",
     file: " ",
     content: "",
     image: "",
     theme: "",
-    link: "/resources/year-declaration",
+    link: "year-declaration",
   },
   {
     id: 1,
+    // path: 'month-declaration',
     label: "month Declaration",
     file: " ",
     content: "",
     image: "",
     theme: "",
-    link: "/resources/month-declaration",
+    link: "month-declaration",
   },
   {
-    id: 0,
+    id: 2,
+    // path: 'prayer-points',
     label: "Prophetic Prayers",
     file: " ",
     content: "",
     image: "",
     theme: "",
-    link: "/resources/prayer-points",
+    link: "prayer-points",
   },
 ];
