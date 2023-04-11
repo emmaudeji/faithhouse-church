@@ -4,6 +4,7 @@ import PageHeroBanner from "@/component/PageHeroBanner";
 import { client } from "@/lib/client";
 import SectionTitleBar from "@/component/cards/SectionTitleBar";
 import SectionCard from "@/component/cards/SectionCard";
+import Link from "next/link";
 
 
 const index = ({ testimonyList, fetchError }) => { 
@@ -104,7 +105,9 @@ const index = ({ testimonyList, fetchError }) => {
 
         <div className='section-padding py-16'>
           <p className="pb-6">Do you have a testimony?</p>
+          <Link href={'/forms/testimony'}>
           <OutlineButtonBlack>Share your Testimony</OutlineButtonBlack>
+          </Link>
         </div>
     </>
   );
