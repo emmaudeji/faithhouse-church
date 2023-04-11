@@ -6,10 +6,16 @@ import { headingList } from '@/Data/headingList'
 
 
 
-const HeroBanner = () => {
+const HeroBanner = ({heroBannerData}) => {
 
   const [index, setIndex] = useState(0);
+  
 
+  let herolist = heroBannerData?.map(({heading}) => {
+    return heading
+  })
+
+  console.log('heroBannerData',   heroBannerData, herolist)
   const handleClick = (sign) => {
   if (sign === 1) {
     if (index === 0) {
@@ -39,7 +45,7 @@ const HeroBanner = () => {
       <div className='section-container absolute top-0 h-[93vh] w-full flex items-center justify-center bg-gradient-to-t from-black text-center text-white'>
 
         <div>
-          <h1 className='text-3xl md:text-5xl font-bold px-6 md:px-40 lg:px-56'>{headingList[index] && headingList[index].heading}</h1>
+          <h1 className='text-3xl md:text-5xl font-bold px-6 md:px-40 lg:px-56'>{herolist && herolist.length ? herolist[index] : headingList[index] && headingList[index].heading}</h1>
           
           <div className="pt-6 flex place-content-center gap-4">
             <Link href={headingList[index].link} className="px-6 py-3 rounded-full border-2 border-white bg-white text-black hover:bg-transparent hover:text-white  duration-500 cursor-pointer">            

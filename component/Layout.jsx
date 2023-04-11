@@ -5,7 +5,7 @@ import Header from './Header'
 import { PayPalScriptProvider } from '@paypal/react-paypal-js';
 import { WhatsAppWidget } from 'react-whatsapp-widget';
 import 'react-whatsapp-widget/dist/index.css';
-import { AiOutlineWhatsApp } from 'react-icons/ai';
+
 
 const Layout = ({children}) => {
   return (

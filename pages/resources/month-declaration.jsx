@@ -3,7 +3,7 @@ import ResourcesHeader from "@/component/ResourcesPage/ResourcesHeader";
 import { monthDeclaration } from "@/Data/monthDeclaration";
 import { months } from "@/Data/months";
 
-const MonthDeclaration = () => {
+const MonthDeclaration = ({monthlyFocus}) => {
   // refactoring
    const [active, setActive] = useState('month Declaration')
    const [index, setIndex] = useState(2)
@@ -21,6 +21,8 @@ const MonthDeclaration = () => {
       }
    }
   
+
+   console.log('monthlyFocus',  monthlyFocus)
    const {id, theme, emphasis, scriptures, month, year, p1, p2, p3, p4, sign } = monthDeclaration[index]
 
   return (
@@ -78,6 +80,15 @@ const MonthDeclaration = () => {
       </div>
     </>
   );
+};
+
+export const getServerSideProps = async () => {
+  const query = '*[_type == "monthlyFocus"]';
+  const monthlyFocus = await client.fetch(query);
+
+  return {
+    props: { monthlyFocus, },
+  };
 };
 
 export default MonthDeclaration;

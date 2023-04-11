@@ -3,11 +3,14 @@ import { useState } from "react";
 import OutlineButtonBlack from "../buttons/OutlineButtonBlack";
 import { AiOutlineMail, } from "react-icons/ai";
 import { AiOutlinePhone } from "react-icons/ai";
+import { sendEmail } from "@/hooks/sendEmail";
+
 
 const VisitorsForm = () => {
   const [input, setInput] = useState({
     email: '',
-    phonenumber: ''
+    phonenumber: '',
+    feedback: 'THIS IS A VISITOR'
   })
 
   const handleChange = (e) => {
@@ -23,12 +26,17 @@ const VisitorsForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log('input- ', input)
+
+    sendEmail(input)
+
 
     setInput({
     email: '',
     phonenumber: ''
   })
+
+
+  console.log('input- ', input)
   }
 
   return (

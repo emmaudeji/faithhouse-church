@@ -1,13 +1,15 @@
 import {useState} from 'react'
 import { AiOutlineMail, } from "react-icons/ai";
 import { AiOutlinePhone } from "react-icons/ai";
+import { sendEmail } from "@/hooks/sendEmail";
+
 
 const PrayerRequestForm = () => {
   const [input, setInput] = useState({
     email: '',
     phonenumber: '',
     name: '',
-    request: ''
+    feedback: ''
   })
 
   const handleChange = (e) => {
@@ -23,14 +25,20 @@ const PrayerRequestForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log('input- ', input)
+
+
+    // send email through emailjs
+    sendEmail(input)
+
 
     setInput({
       email: '',
       phonenumber: '',
       name: '',
-      request: ''
+      feedback: ''
     })
+
+    console.log('input- ---', input)
   }
 
   return (
@@ -64,11 +72,11 @@ const PrayerRequestForm = () => {
           </div>            
           
           <div className="flex-1">
-            <p className="text-zinc-400">Prayer request</p>
+            <p className="text-zinc-400">Prayer feedback</p>
             <div className="flex-1 h-40 bg-white w-full rounded overflow-hidden py-3 text-zinc-400 px-4">
-              <input type="text" name='request' value={input.request} placeholder="Enter your prayer request" 
+              <textarea type="text" name='feedback' value={input.feedback} placeholder="Enter your prayer feedback" 
               onChange={handleChange}
-              className="w-full"/>
+              className="w-full h-full"/>
             </div>
           </div>
 

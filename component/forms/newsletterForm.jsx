@@ -1,6 +1,5 @@
 import Link from "next/link"
 import { useState } from "react";
-import OutlineButtonBlack from "../buttons/OutlineButtonBlack";
 import { AiOutlineMail, } from "react-icons/ai";
 import { AiOutlinePhone } from "react-icons/ai";
 
@@ -23,7 +22,19 @@ const newsletterForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log('input- ', input)
+
+    // send whatsapp message
+    const message = input.email + '+' + input.phonenumber
+
+    // Appending the phone number to the URL
+    let url = `https://web.whatsapp.com/send?phone=2348032787601`;
+
+    // Appending the message to the URL by encoding it
+    url += `&text=${encodeURI(message)}&app_absent=0`;
+
+    window.open(url);
+
+    // console.log('input- ', input)
 
     setInput({
     email: '',

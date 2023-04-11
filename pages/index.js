@@ -10,10 +10,10 @@ import Community from "@/component/Home/Community";
 import Organization from "@/component/Home/Organization";
 import { client } from "@/lib/client";
 
-export default function Home({ testimonyList, eventData }) {
+export default function Home({ testimonyList, eventData, heroBannerData }) {
   return (
     <>
-      <HeroBanner />
+      <HeroBanner heroBannerData={heroBannerData}/>
       <WhyUs1
         text="We are a community of impact driven people passionate about raising leaders of integrity and excellence for national transformation"
         heading="We are not just a church"
@@ -42,7 +42,10 @@ export const getServerSideProps = async () => {
   const queryEvents = '*[_type == "eventSchema"]';
   const eventData = await client.fetch(queryEvents);
 
+  const heroBanner = '*[_type == "heroBanner"]';
+  const heroBannerData = await client.fetch(heroBanner);
+
   return {
-    props: { testimonyList, eventData },
+    props: { testimonyList, eventData, heroBannerData },
   };
 };
