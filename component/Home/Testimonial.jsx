@@ -59,7 +59,7 @@ const Testimonial = ({testimonyList}) => {
           </div>
           <div>
              <OutlineButtonBlack>
-              <Link href='./forms/testimony'>
+              <Link href='./forms/share_testimony'>
              Share Testimony</Link>
             </OutlineButtonBlack>
           </div>

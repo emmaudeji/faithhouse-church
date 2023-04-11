@@ -62,7 +62,7 @@ const Events = ({eventData}) => {
           </div>
           <div className="">
              <OutlineButtonBlack>
-              <Link href='/events'>
+              <Link href='./forms/register_events'>
                 Register for Event
               </Link>
             </OutlineButtonBlack>

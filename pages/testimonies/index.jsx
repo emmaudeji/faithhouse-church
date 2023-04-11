@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import OutlineButtonBlack from "@/component/buttons/OutlineButtonBlack";
 import PageHeroBanner from "@/component/PageHeroBanner";
-import { client } from "@/lib/client";
+import { client, urlFor } from "@/lib/client";
 import SectionTitleBar from "@/component/cards/SectionTitleBar";
 import SectionCard from "@/component/cards/SectionCard";
 import Link from "next/link";
@@ -105,7 +105,7 @@ const index = ({ testimonyList, fetchError }) => {
 
         <div className='section-padding py-16'>
           <p className="pb-6">Do you have a testimony?</p>
-          <Link href={'/forms/testimony'}>
+          <Link href={'./forms/share_testimony'}>
           <OutlineButtonBlack>Share your Testimony</OutlineButtonBlack>
           </Link>
         </div>

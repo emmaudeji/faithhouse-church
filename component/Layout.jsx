@@ -14,12 +14,12 @@ const Layout = ({children}) => {
       <Head>
         <title>Gogrene-faithhouse</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        
+        <Script src="https://js.paystack.co/v1/inline.js"/>
         {/* <script src="https://js.paystack.co/v1/inline.js"></script>  */}
       </Head>
       <PayPalScriptProvider options={{ "client-id": 'AdO9G9kMGsqxZaGTg8zYAZ9jJaOAKEaEYC8TBHvvOC3yRUY7li2fbQXrWMoIHG35Ost68nPWuvtWWCGN'}}>
         <Header/>
-          <Script src="https://js.paystack.co/v1/inline.js"/>
+          
           {children}
           <WhatsAppWidget CompanyIcon={''} phoneNumber="2348032787601" 
           companyName="Faithhouse" replyTimeText='Typically replies in 1hr.'/>

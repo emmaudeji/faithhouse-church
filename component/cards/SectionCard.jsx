@@ -12,7 +12,7 @@ const SectionCard = ({testimonies, handleDropdown, activeContent}) => {
                       <div className="border-r h-full  border-zinc-300">
                         <div className="image w-36 h-36 pr-4 bg-zinc-200 flex items-center justify-center text-3xl font-bold text-zinc-500">
                             <p >
-                              <img src={''} alt="" className="h-full w-full object-cover"/>
+                              <img src={urlFor(testifierImage)} alt="" className="h-full w-full object-cover"/>
                             </p>
                         </div>
                       </div>
