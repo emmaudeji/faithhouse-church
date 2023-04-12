@@ -16,7 +16,7 @@ export const headingList = [
   {
     id: 2,
     heading: `March 2023: My Month of Spiritual Prowess`,
-    link: "/resources/year-declaration",
+    link: "/resources/month-declaration",
     btnText: "Learn more",
   },
 ];

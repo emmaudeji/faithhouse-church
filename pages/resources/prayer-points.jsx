@@ -41,12 +41,15 @@ const PrayerPoints = ({PrayerPointsData, fetchError}) => {
               focus, prayerImage, title, _id}) => {
               return (
                 <div key={_id} id={title} className="py-4 border-b border-zinc-300" >
-                  <div className="pb-6 flex gap-4 flex-col md:flex-row items-center">
+                  <div className="pb-6 flex gap-4 flex-col sm:flex-row sm:items-center">
 
-                    {/* <div className={` ${prayerImage ? "w-[400px] h-[400px] overflow-hidden " : null} `}>
-                      <img src={urlFor(prayerImage)} alt="year focus" 
-                      className="h-full w-full object-cover hover:scale-105 duration-500 "/>
-                    </div> */}
+                    <div>
+                      <div className={` ${prayerImage ? "w-full sm:w-48 h-48 overflow-hidden " : null} `}>
+                        <img src={urlFor(prayerImage)} alt="year focus" 
+                        className="h-full w-full object-cover hover:scale-105 duration-500 "/>
+                      </div>
+                    </div>
+
 
                     <div>
                       <div className="grid gap-1">
@@ -56,7 +59,7 @@ const PrayerPoints = ({PrayerPointsData, fetchError}) => {
                           {focus?.map((item, i) => (<p key={i} className="">{item}</p>))}
                         </p> : null}
                       </div>
-                      <div onClick={() => handleClick(title)} className="hover:text-2xl duration-300 text-xl">
+                      <div onClick={() => handleClick(title)} className="hover:text-3xl duration-300 text-2xl">
                         {active !== title ? <IoIosArrowDropdown/>: <IoIosArrowDropup/>}
                       </div>
                     </div>
