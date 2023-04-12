@@ -14,13 +14,14 @@ const MobileNav = ({setClick, active, setActive, click }) => {
         animate='visible'
         exit='exit'
 
-        className="fixed bg-black top-0 right-0 w-[60vw] md:hidden px-10 pt-20 h-[100vh]"
+        className="fixed bg-black top-0 right-0 
+        w-[80vw] md:hidden px-10 pt-20 h-[100vh]"
       >
         <OnClickOutside
           show={click}
           onClickOutside={() => setClick(false)}
           component={
-             <div className='grid gap-8'>
+             <div className='grid gap-6'>
                 {
                   mobilenavLinks.map(({id, title, link}) => {
                     return (
