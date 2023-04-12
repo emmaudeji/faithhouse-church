@@ -22,9 +22,9 @@ export const resoucesLabel = [
   },
   {
     id: 3,
-    title: "Mps Sermon",
-    emphasis: "Listen and Download Mp3 sermon and leadership training sessions",
+    title: "Prayer Guide",
+    emphasis: "View and download scriptural prayers huide for your success",
     advertImage: "worship.jpg",
-    link: "./mp3-sermon",
+    link: "./resources/prayer-points",
   },
 ];

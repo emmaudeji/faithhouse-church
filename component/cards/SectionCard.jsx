@@ -1,5 +1,6 @@
 import React from 'react'
 import { urlFor } from "@/lib/client";
+import {IoIosArrowDropdown, IoIosArrowDropup} from "react-icons/io"
 
 const SectionCard = ({testimonies, handleDropdown, activeContent}) => {
   return (
@@ -7,15 +8,17 @@ const SectionCard = ({testimonies, handleDropdown, activeContent}) => {
       { testimonies?.map(({testifierImage, title,  highlight, _id, testifier, testimony}) => {
               return (
                 <div id={_id} key={_id} className="border-b border-zinc-300">
+                    
                     <div onClick={() => handleDropdown(_id)}
-                      className="w-full flex gap-4 items-center py-4 onHover">
-                      <div className="border-r h-full  border-zinc-300">
-                        <div className="image w-36 h-36 pr-4 bg-zinc-200 flex items-center justify-center text-3xl font-bold text-zinc-500">
-                            <p >
-                              <img src={urlFor(testifierImage)} alt="" className="h-full w-full object-cover"/>
-                            </p>
+                      className="w-full flex flex-col sm:flex-row gap-4 sm:items-center py-4 ">
+
+                      <div>
+                        <div className="w-36 h-36 overflow-hidden">
+                          <img src={testifierImage && urlFor(testifierImage)} alt="" 
+                          className="h-full w-full object-cover"/>
                         </div>
                       </div>
+
                       <div className="flex-1 content">
                         <div className="grid gap-2 w-full">
                           <h3 className="font-bold text-xl">{title ? title : "God's goodness and mercy is forever"}</h3>
@@ -24,6 +27,10 @@ const SectionCard = ({testimonies, handleDropdown, activeContent}) => {
                           <div >
                             {!activeContent && <button className="text-zinc-500 onHover">Read all</button>}
                           </div>
+                        </div>
+
+                        <div onClick={() => handleDropdown(_id)} className="hover:text-3xl duration-300 text-2xl">
+                          {activeContent !== _id ? <IoIosArrowDropdown/>: <IoIosArrowDropup/>}
                         </div>
                       </div>
                     </div>

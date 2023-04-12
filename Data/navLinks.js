@@ -24,7 +24,7 @@ export const navlinks = [
   },
   {
     id: 6,
-    title: "Success thoughts",
-    link: "/success-thought",
+    title: "Resources",
+    link: "/resources/prayer-points",
   },
 ];

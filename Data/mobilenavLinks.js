@@ -24,9 +24,35 @@ export const mobilenavLinks = [
     link: "/watch#view",
   },
   {
-    id: 6,
+    id: 4,
+    title: "Resources",
+    link: "/resources/prayer-points",
+  },
+  {
+    id: 5,
     title: "Success thoughts",
     link: "/success-thought",
+  },
+  {
+    id: 6,
+    title: "Bookstore",
+    link: "./bookstore",
+  },
+  
+  {
+    id: 8,
+    title: "Team Leaders",
+    link: "./team",
+  },
+  {
+    id: 9,
+    title: "Testimonies",
+    link: "./testimonies",
+  },
+  {
+    id: 10,
+    title: "Register for Event",
+    link: "./forms/register_events",
   },
   {
     id: 7,

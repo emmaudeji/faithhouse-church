@@ -65,7 +65,10 @@ const PrayerPoints = ({PrayerPointsData, fetchError}) => {
                           {active !== title ? <IoIosArrowDropdown/>: <IoIosArrowDropup/>}
                         </div>
                         {active === title ? <div className="rounded-full py-2 px-4
-                        bg-yellow-500 hover:bg-yellow-400 duration-300"> <GenericPdfDownloader rootElementId = {title} downloadFileName = {title}/> </div> : null }
+                        bg-yellow-500 hover:bg-yellow-400 duration-300"> 
+                        <GenericPdfDownloader rootElementId = {title} downloadFileName = {title}/> 
+                        </div> : null } 
+                        <div>{date}</div>
                       </div>
                     </div>
                     
@@ -76,7 +79,8 @@ const PrayerPoints = ({PrayerPointsData, fetchError}) => {
                      active === title ?
                      <div className="grid gap-4">
 
-                      { emphasis && emphasis.length ? <p className="grid gap-1">
+                      { emphasis && emphasis.length ? <p className="grid gap-1 pb-2 
+                      border-b border-zinc-300">
                         <p className="text-zinc-500">This prayer emphasizes on:</p>
                         {emphasis?.map((item, i) => (<p key={i} className="">{item}</p>))}
                       </p> : null}
