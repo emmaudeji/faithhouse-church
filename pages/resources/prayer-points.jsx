@@ -4,6 +4,7 @@ import { months } from "@/Data/months";
 import { client, urlFor } from "@/lib/client";
 import { useRouter } from "next/router";
 import {IoIosArrowDropdown, IoIosArrowDropup} from "react-icons/io"
+import GenericPdfDownloader from "@/utils/pdfDownloader";
 
 
 const PrayerPoints = ({PrayerPointsData, fetchError}) => {
@@ -51,16 +52,20 @@ const PrayerPoints = ({PrayerPointsData, fetchError}) => {
                     </div>
 
 
-                    <div>
-                      <div className="grid gap-1">
+                    <div >
+                      <div className="grid gap-1 pb-3">
                         <h3 className="font-bold text-xl">{title}</h3>
                         {focus && focus.length ? <p className="grid gap-1">
                           <p className="text-zinc-500">The prayer focus:</p>
                           {focus?.map((item, i) => (<p key={i} className="">{item}</p>))}
                         </p> : null}
                       </div>
-                      <div onClick={() => handleClick(title)} className="hover:text-3xl duration-300 text-2xl">
-                        {active !== title ? <IoIosArrowDropdown/>: <IoIosArrowDropup/>}
+                      <div className="flex gap-4 items-center">
+                        <div onClick={() => handleClick(title)} className="hover:text-3xl duration-300 text-2xl">
+                          {active !== title ? <IoIosArrowDropdown/>: <IoIosArrowDropup/>}
+                        </div>
+                        {active === title ? <div className="rounded-full py-2 px-4
+                        bg-yellow-500 hover:bg-yellow-400 duration-300"> <GenericPdfDownloader rootElementId = {title} downloadFileName = {title}/> </div> : null }
                       </div>
                     </div>
                     
