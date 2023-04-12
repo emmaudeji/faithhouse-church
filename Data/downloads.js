@@ -2,7 +2,7 @@ export const downloads = [
   {
     id: 0,
     title: "2023 Prophetic Focus",
-    link: "/download",
+    link: "/resources/year-declaration",
     download: "",
     details: "",
     image: "",
@@ -10,15 +10,15 @@ export const downloads = [
   {
     id: 1,
     title: "Monthly Prophetic Focus",
-    link: "/download",
+    link: "/resources/month-declaration",
     download: "",
     details: "",
     image: "",
   },
   {
     id: 2,
-    title: "Prophhetic Prayers",
-    link: "/download",
+    title: "Prophetic Prayers",
+    link: "/resources/prayer-points",
     download: "",
     details: "",
     image: "",
@@ -26,7 +26,7 @@ export const downloads = [
   {
     id: 3,
     title: "2023 Prayer Guide",
-    link: "/download",
+    link: "/resources/prayer-points",
     download: "",
     details: "",
     image: "",
@@ -34,7 +34,7 @@ export const downloads = [
   {
     id: 4,
     title: "Who We Are",
-    link: "/download",
+    link: "/connect/#who-we-are",
     download: "",
     details: "",
     image: "",
@@ -42,7 +42,7 @@ export const downloads = [
   {
     id: 5,
     title: "Year Calender",
-    link: "/download",
+    link: "/events",
     download: "",
     details: "",
     image: "",

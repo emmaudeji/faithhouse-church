@@ -17,6 +17,7 @@ const MonthDeclaration = ({monthlyFocus, fetchError}) => {
    const [available, setAvailable] = useState(true);
    const [activeMonth, setActiveMonth] = useState(new Date().getMonth())
    const [dynamicData, setDynamicData] = useState([])
+   const [staticData, setStaticData] = useState([])
 
   //  on page mount
   useEffect(() => {
@@ -26,18 +27,21 @@ const MonthDeclaration = ({monthlyFocus, fetchError}) => {
   
   
   // checks that resources is available before rendering
-   const handleClick = (id) => {
+   const handleClick = (id, month) => {
      setActiveMonth(id-1)
      const filtered = monthlyFocus?.filter(item => new Date(item.monthYear).getMonth() === id - 1)
-    
+     const filteredStatic = monthDeclaration?.filter(item => item.month === month )
+
      
      if ( filtered.length || monthDeclaration[id-1] ) {
       setAvailable(true)
       setIndex(id-1)
       setDynamicData(filtered)
+      setStaticData(filteredStatic)
     } else {
         setAvailable(false)
         setDynamicData([])
+        setStaticData([])
       }
 
       console.log('--------',filtered, )
@@ -51,13 +55,13 @@ const MonthDeclaration = ({monthlyFocus, fetchError}) => {
       <ResourcesHeader path={path}/>
 
       {/* months bar */}
-      <div className="months px-6 sm:px-16 lg:px-35 flex py-2 overflow-auto scrollbar-hidden">
+      <div className="months px-6 sm:px-16 lg:px-35 flex overflow-auto scrollbar-hidden">
         {
           months?.map(({id, month}, i) => {
             return (
               <div key={id} 
-              onClick = {() => handleClick(id)}
-              className={` px-2  w-48 h-full text-center cursor-pointer hover:bg-zinc-300 duration-500 ${(activeMonth === i) ? 'bg-zinc-300 ' : null} `}>
+              onClick = {() => handleClick(id, month)}
+              className={` px-2  py-3 w-48 h-full cursor-pointer hover:bg-zinc-300 duration-500 ${(activeMonth === i) ? 'bg-zinc-300 ' : null} `}>
                 {month}
               </div>
             )
@@ -82,7 +86,7 @@ const MonthDeclaration = ({monthlyFocus, fetchError}) => {
                   className="data section-padding py-14 grid gap-6"
                   >
                     <div className={` ${monthlyFocusImage ? "w-full sm:w-[500px] h-60 overflow-hidden" : null} `}>
-                      <img className="object-cover"  src={urlFor(monthlyFocusImage)} alt="month-img" />
+                      <img className="object-cover  w-full h-full"  src={urlFor(monthlyFocusImage)} alt="month-img" />
                     </div>
                     <div className="heading pb-6" >
                       <div className="text-2xl font-bold text-zinc-500">
@@ -119,7 +123,7 @@ const MonthDeclaration = ({monthlyFocus, fetchError}) => {
              : 
           // if dynamic data is not available, render static data 
              (
-              monthDeclaration[index]?.map(({id, theme, emphasis, scriptures, month, year, p1, p2, p3, p4, sign }) => {
+              staticData?.map(({id, theme, emphasis, scriptures, month, year, p1, p2, p3, p4, sign }) => {
                 <div key={id} className="py-14 px-6 sm:px-16 lg:px-36 grid gap-6">
                 <div className="heading">
                   <div className="text-2xl font-bold text-zinc-500">

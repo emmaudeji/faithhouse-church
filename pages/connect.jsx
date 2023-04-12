@@ -10,6 +10,7 @@ import MonthlyActivities from '@/component/Conect/MonthlyActivities'
 import Address from '@/component/Address'
 import FeedbackForm from '@/component/forms/FeedbackForm'
 import PrayerRequestForm from '@/component/forms/PrayerRequestForm'
+import GenericPdfDownloader from '@/utils/pdfDownloader'
 
 const connect = () => {
   const [showForm, setShowForm] = useState(false);
@@ -21,7 +22,22 @@ const connect = () => {
       image={'/girls-playing.jpg'}
       />
 
+      
+      
+      <div id='who-we-are' className="pt-8">
+
       <WhyUs1 text={`You are gladly welcome to Faithhouse Leadership Churches Worldwide (One global Leadership Church). Transforming lives and Nations with God's light. We are the International Center for Leadership, Diplomacy, Economic and Human Development.`} heading={'Who we are'} img={''} showBtn={false} logo={'international-logo.png'} smallText={true}/>
+      <div className='section-padding pb-4 grid gap-2 text-center justify-center'>
+      <p className="">Dowload Who we are as Pdf</p>
+        <div className=' bg-yellow-500 px-8 py-4 rounded-full hover:bg-yellow-400 duration-500'>
+          
+        <GenericPdfDownloader 
+          downloadFileName="who_we_are_faithhouse" 
+          rootElementId="who-we-are" 
+          btn=''
+        />
+        </div>
+      </div>
 
       <Community heading='Our Commitment' text='We guarantee you that if you stay with us for three months, you will experience a total transformation.' img={'experience.png'}/>   
 
@@ -69,10 +85,11 @@ const connect = () => {
         </div>
       </div>
 
-      <div id='contact' className='py-16 w-full  text-zinc-400 section-container justify-center items-center text-start'>
+      <div id='contact' className='py-16 w-full  text-zinc-700 section-container justify-center items-center text-start'>
         <Address/>
       </div>
       
+      </div>
       <div id='feedback' className='py-24 bg-zinc-200 w-full section-container gap-10'>
         <div className="flex-1">
           <h3 className='text-xl font-bold pb-2 text-zinc-400 '>
@@ -82,7 +99,7 @@ const connect = () => {
             <FeedbackForm/>
           </div>
         </div>
-        <div className="flex-1">
+        <div id='prayer-request' className="flex-1">
           <h3 className='text-xl font-bold pb-2 text-zinc-400 '>
             Do you have a prayer request?
           </h3>

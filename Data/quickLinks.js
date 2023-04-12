@@ -4,11 +4,7 @@ export const quickLinks = [
     title: "About Us",
     link: "/about",
   },
-  {
-    id: 1,
-    title: "Contact",
-    link: "/contact",
-  },
+
   {
     id: 2,
     title: "Volunteer groups",
@@ -27,16 +23,12 @@ export const quickLinks = [
   {
     id: 5,
     title: "Sermon",
-    link: "/sermon",
+    link: "/watch",
   },
-  {
-    id: 6,
-    title: "Organization",
-    link: "/sermon",
-  },
+
   {
     id: 7,
     title: "Request for prayers",
-    link: "/connect/#feedback",
+    link: "/connect/#prayer-request",
   },
 ];

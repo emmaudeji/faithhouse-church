@@ -23,10 +23,11 @@ export default {
     },
 
     {
-      name: 'yearlyEmphasis',
-      title: 'Yearly emphasis',
-      type: 'string',
-      description: 'What is the Month emphasis',
+      name: 'manthra',
+      title: 'Yearly Manthra',
+      type: 'array',
+      of: [{type: 'string'}],
+      description: 'Enter the Manthra',
       required: true,
     },
 
@@ -40,7 +41,7 @@ export default {
     },
 
     {
-      name: 'yearlyContent',
+      name: 'content',
       title: 'Content',
       description: 'Enter the content of the prophetic focus. Stylize as you want',
       type: 'array',
