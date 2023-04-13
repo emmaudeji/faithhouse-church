@@ -45,6 +45,16 @@ a {
   @apply hover:bg-zinc-300 duration-500 cursor-pointer
 }
 
+.profile-section {
+  @apply grid gap-2 
+}
+.profile-heading{
+  @apply text-lg font-bold
+}
+
+.profile-bullet {
+  @apply flex items-center gap-4 flex-1
+}
 .gg {
   @apply h-24 bg-yellow-500 sticky top-0 items-center justify-between
 }

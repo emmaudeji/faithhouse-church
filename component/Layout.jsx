@@ -17,14 +17,14 @@ const Layout = ({children}) => {
         <Script src="https://js.paystack.co/v1/inline.js"/>
         {/* <script src="https://js.paystack.co/v1/inline.js"></script>  */}
       </Head>
-      <PayPalScriptProvider options={{ "client-id": 'AdO9G9kMGsqxZaGTg8zYAZ9jJaOAKEaEYC8TBHvvOC3yRUY7li2fbQXrWMoIHG35Ost68nPWuvtWWCGN'}}>
+      
         <Header/>
-          
-          {children}
-          <WhatsAppWidget CompanyIcon={''} phoneNumber="2348032787601" 
-          companyName="Faithhouse" replyTimeText='Typically replies in 1hr.'/>
+          <PayPalScriptProvider options={{ "client-id": 'AdO9G9kMGsqxZaGTg8zYAZ9jJaOAKEaEYC8TBHvvOC3yRUY7li2fbQXrWMoIHG35Ost68nPWuvtWWCGN'}}>
+            {children}
+            <WhatsAppWidget CompanyIcon={''} phoneNumber="2348032787601" 
+            companyName="Faithhouse" replyTimeText='Typically replies in 1hr.'/>
+          </PayPalScriptProvider>
         <Footer/>
-      </PayPalScriptProvider>
     </>
   )
 }

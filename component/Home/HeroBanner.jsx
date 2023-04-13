@@ -15,7 +15,6 @@ const HeroBanner = ({heroBannerData}) => {
     return heading
   })
 
-  console.log('heroBannerData',   heroBannerData, herolist)
   const handleClick = (sign) => {
   if (sign === 1) {
     if (index === 0) {
