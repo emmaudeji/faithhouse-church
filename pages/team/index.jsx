@@ -1,104 +1,113 @@
 import {useState} from "react";
 import PageHeroBanner from "@/component/PageHeroBanner";
 import {IoIosArrowDropdown, IoIosArrowDropup} from "react-icons/io"
-const index = () => {
- 
 
-  const {profileSummary, pesronalProfile, academicQualification, personalPhilosophy, leadershipExperience,  christianBackground, passionForNationBuilding} = teamProfileList()
+const index = () => {
   return (
-    <>
+    <div>
       <PageHeroBanner
         pageTitle="Team >"
         heading="Our pastors are loving and sincere people"
         image={"/rev-ikenna-emmanuel-prayer.jpg"}
       />
+      <div className="space h-16 sm:h-24 ">{' '}</div>
 
-    <div className="space h-16 sm:h-24 ">{' '}</div>
-      
-    <div id="rev-ikenna-emmanuel" className="section-padding grid gap-6">
-
-        {/* heading */}
-      <div className="flex items-end gap-3 sm:gap-6 flex-col sm:flex-row border-b 
-        pb-4 border-zinc-300">
-          <div className="img">
-            <div className="w-full sm:w-80 h-60 overflow-hidden">
-              <img src="/rev-ikenna-emmanuel-prayer-2.jpg" alt="ikenna-emmanuel" className="w-full h-full object-cover"/>
-            </div>
-          </div>
-          <div className="title">
-            <h2 className="name font-bold text-2xl pb-2">
-              Rev. Barr. Ikenna Emmanuel
-            </h2>
-            <p>
-              {profileSummary}
-            </p>
-          </div>
+      <div className="grid gap-16">
+        <TeamProfile profile={`Rev. Barr. Ikenna Emmanuel`}/>
+        <TeamProfile profile={`Barr. Nkiru Ikenna-Emmanuel`}/>
       </div>
       
-      {/* <div className="grid">
-
-      </div> */}
-
-        {/* personal profile */}
-          <SectionHeader 
-          heading={'Personal Profile'} 
-          sub=''
-          list={pesronalProfile}
-          paragraph=''
-          />
-        
-        {/* ACADEMIC QUALIFICATION */}
-          <SectionHeader 
-          heading={'Academic Qualification'} 
-          sub=''
-          list={academicQualification}
-          paragraph=''
-          />
-
-        {/*PERSONAL PHILOSOPHY  */}
-          <SectionHeader
-            heading={`Personal Philosophy`}
-            sub={` Rev Barr Ikenna Emmanuel advocates that the development of any institution and more 
-            also a state and nation is drawn from their Strong value for human life, human capital development and 
-            robust enforcement of law and order: His crusade has been to revamp the socio-economic system 
-            of Imo-Nigeria Political/Government Structure with;`}
-            list={personalPhilosophy}
-            paragraph=''
-          />
-
-        {/*  */}
-          <SectionHeader
-            heading={`Leadership Experience`}
-            sub={`Rev Barr Ikenna Emmanuel is also the TEAM LEADER of FAITHHOUSE LEADERSHIP WORLD, 
-            a multi ethnic, multicultural, transnational organization 
-            He has served for over many years in the following registered corporate entities:`}
-            list={leadershipExperience}
-            paragraph=''
-          />
-
-          {/* christian background */}
-          <SectionHeader
-            heading={`christian background`}
-            sub={``}
-            list={null}
-            paragraph={christianBackground}
-            sub2={null}
-          />
-
-          <SectionHeader
-            heading={`His passion for nation building`}
-            sub={``}
-            list={null}
-            paragraph={passionForNationBuilding}
-            sub2={`Rev Ikenna Emmanuel's speech during the 2019 Imo state gubernatrorial elections`}
-          />
-      </div>
-
-    </>
-  );
+    </div>
+  )
 };
 
 export default index;
+
+export const TeamProfile = ({profile}) => {
+  const {profileSummary, pesronalProfile, academicQualification, personalPhilosophy, leadershipExperience,  christianBackground, passionForNationBuilding} = teamProfileList()
+  
+  return (
+        
+      
+      <div id={profile} className="section-padding grid gap-6">
+
+          {/* heading */}
+        <div className="flex items-end gap-3 sm:gap-6 flex-col sm:flex-row border-b 
+          pb-4 border-zinc-300">
+            <div className="img">
+              <div className="w-full sm:w-80 h-60 overflow-hidden">
+                <img src="/rev-ikenna-emmanuel-prayer-2.jpg" alt="ikenna-emmanuel" className="w-full h-full object-cover"/>
+              </div>
+            </div>
+            <div className="title">
+              <h2 className="name font-bold text-2xl pb-2">
+               {profile}
+              </h2>
+              <p>
+                {profileSummary}
+              </p>
+            </div>
+        </div>
+
+          {/* personal profile */}
+            <SectionHeader 
+            heading={'Personal Profile'} 
+            sub=''
+            list={pesronalProfile}
+            paragraph=''
+            />
+          
+          {/* ACADEMIC QUALIFICATION */}
+            <SectionHeader 
+            heading={'Academic Qualification'} 
+            sub=''
+            list={academicQualification}
+            paragraph=''
+            />
+
+          {/*PERSONAL PHILOSOPHY  */}
+            <SectionHeader
+              heading={`Personal Philosophy`}
+              sub={` Rev Barr Ikenna Emmanuel advocates that the development of any institution and more 
+              also a state and nation is drawn from their Strong value for human life, human capital development and 
+              robust enforcement of law and order: His crusade has been to revamp the socio-economic system 
+              of Imo-Nigeria Political/Government Structure with;`}
+              list={personalPhilosophy}
+              paragraph=''
+            />
+
+          {/*  */}
+            <SectionHeader
+              heading={`Leadership Experience`}
+              sub={`Rev Barr Ikenna Emmanuel is also the TEAM LEADER of FAITHHOUSE LEADERSHIP WORLD, 
+              a multi ethnic, multicultural, transnational organization 
+              He has served for over many years in the following registered corporate entities:`}
+              list={leadershipExperience}
+              paragraph=''
+            />
+
+            {/* christian background */}
+            <SectionHeader
+              heading={`christian background`}
+              sub={``}
+              list={null}
+              paragraph={christianBackground}
+              sub2={null}
+            />
+
+            <SectionHeader
+              heading={`His passion for nation building`}
+              sub={``}
+              list={null}
+              paragraph={passionForNationBuilding}
+              sub2={`Rev Ikenna Emmanuel's speech during the 2019 Imo state gubernatrorial elections`}
+            />
+      </div>
+
+      
+    )
+  }
+
 
 export const SectionHeader = ({heading, sub, list, paragraph, sub2}) => {
   const [active, setActive] = useState(false)
@@ -154,9 +163,9 @@ export const Content = ({list, sub, paragraph, sub2 }) => {
 }
 
 export const teamProfileList = () => {
-  const profileSummary = `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Inventore mollitia autem, 
-              commodi reprehenderit, rem nulla accusantium totam facere, molestias harum ipsa 
-              corporis dolores pariatur incidunt repudiandae. Autem pariatur vel consequuntur.`
+  const profileSummary = `Rev Barr Ikenna Emmanuel advocates that the development of any institution and more 
+  also a state and nation is drawn from their Strong value for human life, human capital development and robust 
+  enforcement of law and order:`
 
   const pesronalProfile = [
                  ` REV. BARR. IKENNA EMMANUEL is a Barrister and solicitor of the supreme court of Nigeria and a HUMAN RIGHT ACTIVIST. ` ,                 
