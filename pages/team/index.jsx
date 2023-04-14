@@ -13,8 +13,8 @@ const index = () => {
       <div className="space h-16 sm:h-24 ">{' '}</div>
 
       <div className="grid gap-16">
-        <TeamProfile profile={`Rev. Barr. Ikenna Emmanuel`}/>
-        <TeamProfile profile={`Barr. Nkiru Ikenna-Emmanuel`}/>
+        <TeamProfile profile={`Rev. Barr. Ikenna Emmanuel`} profileList={teamProfileList} noSub2={false} profileImg={`/ikenna-emmanuel.jpeg`}/>
+        <TeamProfile profile={`Barr. Nkiru Ikenna-Emmanuel`} profileList={barrNkiru} noSub2={true} profileImg={`/nkiru-ikenna-emmanuel.webp`}/>
       </div>
       
     </div>
@@ -23,22 +23,79 @@ const index = () => {
 
 export default index;
 
-export const TeamProfile = ({profile}) => {
-  const {profileSummary, pesronalProfile, academicQualification, personalPhilosophy, leadershipExperience,  christianBackground, passionForNationBuilding} = teamProfileList()
+export const TeamProfile = ({profile, profileList, profileImg, noSub2}) => {
+  const {profileSummary, pesronalProfile, academicQualification, 
+    personalPhilosophy, leadershipExperience,  christianBackground, 
+    passionForNationBuilding} = profileList()
+
+  const sectionDetails = [
+    {
+      heading: 'Personal Profile', 
+      sub: '',
+      list: pesronalProfile,
+      paragraph: '',
+      sub2: ``,
+      noSub2: noSub2
+    },
+    {
+      heading: 'Academic Qualification', 
+      sub: '',
+      list: academicQualification,
+      sub2: ``,
+      paragraph: '',
+      noSub2: noSub2
+    },
+    {
+      heading: `Personal Philosophy`,
+      sub: ``,
+      list: personalPhilosophy,
+      paragraph: '',
+      sub2: ``,
+      noSub2: noSub2
+    },
+    {
+      heading: `Leadership Experience`,
+      sub: `Rev Barr Ikenna Emmanuel is also the TEAM LEADER of FAITHHOUSE LEADERSHIP WORLD, 
+              a multi ethnic, multicultural, transnational organization 
+              He has served for over many years in the following registered corporate entities:`,
+      list: leadershipExperience,
+      paragraph: '',
+      sub2: ``,
+      noSub2: noSub2
+    },
+    {
+      heading: `christian background`,
+      sub: ``,
+      list: ``,
+      paragraph: christianBackground,
+      sub2: null,
+      noSub2: noSub2
+
+    },
+    {
+      heading: `His passion for nation building`,
+      sub: ``,
+      list: ``,
+      paragraph: passionForNationBuilding,
+      sub2: `Rev Ikenna Emmanuel's speech during the 2019 Imo state gubernatrorial elections`,
+      noSub2: noSub2
+    },
+
+    ]
   
   return (
-        
-      
       <div id={profile} className="section-padding grid gap-6">
+        {/* heading */}
+        <div className="flex sm:items-end gap-3 sm:gap-6 flex-col sm:flex-row border-b 
+          pb-4 border-zinc-300 justify-start">
 
-          {/* heading */}
-        <div className="flex items-end gap-3 sm:gap-6 flex-col sm:flex-row border-b 
-          pb-4 border-zinc-300">
             <div className="img">
               <div className="w-full sm:w-80 h-60 overflow-hidden">
-                <img src="/rev-ikenna-emmanuel-prayer-2.jpg" alt="ikenna-emmanuel" className="w-full h-full object-cover"/>
+                <img src={profileImg} alt={profile} 
+                className="w-full h-full object-cover"/>
               </div>
             </div>
+
             <div className="title">
               <h2 className="name font-bold text-2xl pb-2">
                {profile}
@@ -48,95 +105,58 @@ export const TeamProfile = ({profile}) => {
               </p>
             </div>
         </div>
-
-          {/* personal profile */}
-            <SectionHeader 
-            heading={'Personal Profile'} 
-            sub=''
-            list={pesronalProfile}
-            paragraph=''
-            />
-          
-          {/* ACADEMIC QUALIFICATION */}
-            <SectionHeader 
-            heading={'Academic Qualification'} 
-            sub=''
-            list={academicQualification}
-            paragraph=''
-            />
-
-          {/*PERSONAL PHILOSOPHY  */}
-            <SectionHeader
-              heading={`Personal Philosophy`}
-              sub={` Rev Barr Ikenna Emmanuel advocates that the development of any institution and more 
-              also a state and nation is drawn from their Strong value for human life, human capital development and 
-              robust enforcement of law and order: His crusade has been to revamp the socio-economic system 
-              of Imo-Nigeria Political/Government Structure with;`}
-              list={personalPhilosophy}
-              paragraph=''
-            />
-
-          {/*  */}
-            <SectionHeader
-              heading={`Leadership Experience`}
-              sub={`Rev Barr Ikenna Emmanuel is also the TEAM LEADER of FAITHHOUSE LEADERSHIP WORLD, 
-              a multi ethnic, multicultural, transnational organization 
-              He has served for over many years in the following registered corporate entities:`}
-              list={leadershipExperience}
-              paragraph=''
-            />
-
-            {/* christian background */}
-            <SectionHeader
-              heading={`christian background`}
-              sub={``}
-              list={null}
-              paragraph={christianBackground}
-              sub2={null}
-            />
-
-            <SectionHeader
-              heading={`His passion for nation building`}
-              sub={``}
-              list={null}
-              paragraph={passionForNationBuilding}
-              sub2={`Rev Ikenna Emmanuel's speech during the 2019 Imo state gubernatrorial elections`}
-            />
-      </div>
-
-      
+        
+          <div className="grid gap-4">
+          {
+            sectionDetails?.map(({heading, sub, sub2, paragraph, list, noSub2}) => {
+              return (
+                <div key={heading} className="">
+                  <SectionHeader
+                    heading={heading}
+                    sub={sub}
+                    list={list}
+                    paragraph={paragraph}
+                    sub2={sub2}
+                    noSub2={noSub2}
+                  />
+                </div>
+                
+              )
+            })
+          }
+          </div>
+     </div>      
     )
   }
 
-
-export const SectionHeader = ({heading, sub, list, paragraph, sub2}) => {
+export const SectionHeader = ({heading, sub, list, paragraph, sub2, noSub2}) => {
   const [active, setActive] = useState(false)
   return (
     <div className="grid gap-2 ">
-  <div className="flex justify-between p-4 bg-zinc-200 onHover" onClick={() => setActive(!active)}>
-    <h3 className="capitalize text-lg font-bold ">
-      {heading}
-    </h3>
-    <div className="text-2xl hover:scale-110 duration-300">
-      {active ? <IoIosArrowDropup/> : <IoIosArrowDropdown/>}
-    </div>
-  </div>
+      <div className="flex justify-between p-4 bg-zinc-200 onHover" onClick={() => setActive(!active)}>
+        <h3 className="capitalize text-lg font-bold ">
+          {heading}
+        </h3>
+        <div className="text-2xl hover:scale-110 duration-300">
+          {active ? <IoIosArrowDropup/> : <IoIosArrowDropdown/>}
+        </div>
+      </div>
   {
-    active && <Content list={list} sub={sub} paragraph={paragraph} sub2={sub2}/> 
+    active && <Content list={list} sub={sub} paragraph={paragraph} sub2={sub2} noSub2={noSub2}/> 
   }
   </div>
   ) 
 }
 
-export const Content = ({list, sub, paragraph, sub2 }) => {
+export const Content = ({list, sub, paragraph, sub2, noSub2 }) => {
   return (
     <div>
-       { sub ? <p>{sub}</p> : null}
+       { !noSub2 && sub ? <p>{sub}</p> : null}
     { list?.length ? <div className="grid gap-2">
       {list.map((item, i) => {
         return (
-          <div className="flex items-center gap-2  " key={i}>
-            <div className="space w-2 h-2 p-1 bg-black">{''}</div>
+          <div className="flex gap-2  " key={i}>
+            <div className="pt-2"><div className="space w-2 h-2 p-1 bg-black">{''}</div></div>
             <p>{item}</p>
           </div>
         )
@@ -146,7 +166,7 @@ export const Content = ({list, sub, paragraph, sub2 }) => {
     (
       <div className="grid gap-4">
         <p className="font-bold ">
-          {sub2}
+          {!noSub2 && sub2}
         </p>
            {paragraph?.map((item, i) => {
             return (
@@ -163,9 +183,10 @@ export const Content = ({list, sub, paragraph, sub2 }) => {
 }
 
 export const teamProfileList = () => {
-  const profileSummary = `Rev Barr Ikenna Emmanuel advocates that the development of any institution and more 
-  also a state and nation is drawn from their Strong value for human life, human capital development and robust 
-  enforcement of law and order:`
+  const profileSummary = ` Rev Barr Ikenna Emmanuel is a human right activist and int'l team leader of Faithhouse. 
+  He advocates that the development of any institution and more 
+  also a state and nation is drawn from their Strong value for human life, human capital development and 
+  robust enforcement of law and order.`
 
   const pesronalProfile = [
                  ` REV. BARR. IKENNA EMMANUEL is a Barrister and solicitor of the supreme court of Nigeria and a HUMAN RIGHT ACTIVIST. ` ,                 
@@ -248,5 +269,58 @@ export const teamProfileList = () => {
   ]
 
 
-  return {profileSummary, pesronalProfile, academicQualification, personalPhilosophy, leadershipExperience, christianBackground, passionForNationBuilding }
+  return {profileSummary, pesronalProfile, academicQualification, personalPhilosophy,
+    leadershipExperience, christianBackground, passionForNationBuilding }
 }
+
+const barrNkiru = () => {
+
+  const pesronalProfile = [
+    `    She IS the  Assistant Deputy Registrar and Head of a Legal Department of a Higher institution. 
+    `,
+    `She is extensively involved in Women development in Africa through the Transformed Women International 
+    Leadership Forum as the founder and President.
+    `,
+    `She is poised to set up further programs and its Statistical Support System for the Development of Africa in future.
+    ` ,
+    ` She is an international  speaker and trainer. married with four children.`
+  ]
+  const academicQualification = [` She studied Library Science, Law and  Education Technology`,
+    `She has vast experience in Pertinent federal, state, and local laws, regulations and court decisions relating to education and Business `,
+    `She has a Professional Diploma in Education (PDE) Certificate, and a Masters in Educational 
+    Technology which has earned her membership in TEACHERS REGISTRATION COUNCIL OF NIGERIA (TRCN).`
+  ]
+  const personalPhilosophy = [ 
+    `As a result of her dynamic vision to build a strong family system for Africa women, she has commits her time in advocating for 
+    values re-orientation for women and the girl child right related issues.,`,
+
+    `She displayes high profile stand on the education of women and their involvement in global LEADERSHIP especially in Africa.`
+
+  ]
+  const profileSummary = `Nkiru Ikenna-Emmanuel is a Nigerian certified Lawyer of over 1
+  8 years of experience in the area of Administration, Education Technology  and  Women right.
+  She is a University  management expert specializing in the area of Law of Contract, 
+  Staffing ,and Administrative law. She has
+   a  personal vision to transforming society by building healthy and strong family institutions, 
+   defending the less privileged through a functional process of advocacy and education. She co-leads
+    the Faithhouse int'l with her husband, Barr. Ikenna Emmanuel.`
+  const leadershipExperience = [
+    ` She serves as the legal adviser to the Provost of Alvan Ikoku Federal College of Education, Owerri Imo state (A.I.F.C.E).`,
+    `    She is currently  the Director of Women, Law and Family Development Centre (WLFDCN), a nongovernmental , non-profit making training research and advocacy arm/ specializing in socio-economic/legal issues with emphasis on gender perspectives under i- goldAfrica .
+    `,
+    `    She is profound speaker, teacher, mentor, trainer and life coach to many .
+    `,  
+    `She has contributed significantly to the academic community and the society at large through various not for profit education, 
+    leadership, human development resource platforms, that train undergraduates in character, skills, and competence for maximum performance`,
+  
+  ]
+  const christianBackground = []
+  const passionForNationBuilding = [`Barrister Nkiru Ikenna-emmanuel  is in the forefront of activism for women’s rights including the current “Intelligent  women in democracy and governance” campaign, participation in Gender of the International Centre for leadership ,Diplomacy  ,Human and economic Development 
+  `]
+  
+
+  return {profileSummary, pesronalProfile, academicQualification, personalPhilosophy, 
+    leadershipExperience, christianBackground, passionForNationBuilding }
+
+}
+
