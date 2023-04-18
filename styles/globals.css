@@ -92,6 +92,42 @@ a {
   display: none;
 }
 
+.slider-container {
+
+}
+
+.slider {
+  /* display: flex;
+  overflow-x: auto; */
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+
+.slider-object {
+  /* flex: 1 0 100%; */
+  scroll-snap-align: start;
+}
+
+.slider-nav {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  column-gap: 1rem;
+  position: absolute;
+  bottom: 1.24rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+}
+
+.slider-nav a {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  color: #fff;
+  opacity: 0.7;
+  transition: opacity ease 250ms;
+}
 
 /* img {
   display: block;
@@ -100,40 +136,6 @@ a {
   object-fit: cover;
 } */
 /* 
-
-
-.bg-darker {
-  background: var(--color-darker);
-}
-
-.bg-dark {
-  background: var(--color-dark);
-}
-
-.bg-black {
-  background: var(--color-black);
-}
-
-.bg-primary {
-  background: var(--color-primary);
-}
-
-.bg-secondary {
-  background: var(--color-secondary);
-}
-
-.text-primary {
-  color: var(--color-primary);
-}
-
-.text-secondary {
-  color: var(--color-secondary);
-}
-
-
-.button {
-  @apply 
-}
 
 
 .box-shadow {

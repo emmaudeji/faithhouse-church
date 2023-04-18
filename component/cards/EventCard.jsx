@@ -8,7 +8,7 @@ import {MdDateRange} from 'react-icons/md'
 
 const EventCard = ({image, title, eventDate, eventTime, address, theme, emphasis, link}) => {
   return (
-    <div className='h-[22rem] relative w-[16rem] rounded'>
+    <div className='h-[22rem] relative w-[262px] rounded'>
       
       {/* image container */}
       <div className="relative bg-zinc-200 h-[90%]  image-container rounded">

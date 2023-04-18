@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import OutlineButtonBlack from "../buttons/OutlineButtonBlack";
 import Link from "next/link";
 import TestimonyCard from "../cards/TestimonyCard";
 import { testimonies } from "@/Data/testimonies";
 import { client } from "@/lib/client";
+import { SliderScroll } from "@/utils/SliderScroll";
 
 const Testimonial = ({testimonyList}) => {
+  const scrollRef = useRef(null)
   // const reduceList = testimonyList?.slice(0,5)
   const [testimonials, setTestimonials] = useState(testimonyList)
 
@@ -23,8 +25,8 @@ const Testimonial = ({testimonyList}) => {
       </div>
 
       {/* slider */}
-      <div className="overflow-auto scrollbar-hidden pb-2">
-        <div className="flex gap-6 ">
+      <div className="pb-2 relative">
+        <div ref={scrollRef} className="flex gap-6 overflow-auto scrollbar-hidden ">
           {
             testimonials ? testimonials.map(({title, highlight, _id, testifier,}) => {
               return (
@@ -46,6 +48,7 @@ const Testimonial = ({testimonyList}) => {
             })
           }          
         </div>
+        <SliderScroll distance={280} scrollRef={scrollRef}/>
       </div>
 
       {/* Action buttons */}

@@ -1,14 +1,15 @@
-import { useState } from "react";
+import { useRef } from "react";
 import EventCard from "../cards/EventCard"
 import { eventList } from "@/Data/eventList"
 import OutlineButtonBlack from "../buttons/OutlineButtonBlack";
 import Link from "next/link";
 import { urlFor } from '@/lib/client'
 import getEventsData from "@/hooks/getEventsData";
+import { SliderScroll } from "@/utils/SliderScroll";
 
 
 const Events = ({eventData}) => {
-
+  const scrollRef = useRef(null)
   const {data, err} = getEventsData(eventData)
 
   // console.log('eventData--', eventData, 'data--', data, 'err--', err)
@@ -25,13 +26,12 @@ const Events = ({eventData}) => {
       </div>
 
     {/* Event Slider  */}
-      <div className="overflow-auto mx-1 pb-2 scrollbar-hidden">
-        <div className="flex gap-6 ">
+      <div className="relative pb-2">
+        <div className="flex gap-6 overflow-auto mx-3 scrollbar-hidden" ref={scrollRef}>
           {
             data?.map(({_id, eventImage, image, title, other_event, eventDate, time, venue, theme, emphasis}) => {
-              
               return (
-                <div key={_id}>
+                <div key={_id} id={_id} className="">
                   <EventCard
                     image={eventImage ? urlFor(eventImage) : image}
                     title={title  ? title : other_event}
@@ -46,9 +46,12 @@ const Events = ({eventData}) => {
               )
             })
           }
-          
         </div>
+
+        {/* click o scroll buttons */}
+        <SliderScroll distance={280} scrollRef={scrollRef}/>
       </div>
+     
 
       {/* Action buttons */}
       <div className="btn flex justify-center pt-14">

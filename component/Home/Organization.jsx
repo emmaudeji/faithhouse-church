@@ -1,9 +1,13 @@
 import Link from "next/link"
 import { organizations } from "@/Data/organizations"
+import { SliderScroll } from "@/utils/SliderScroll"
+import { useRef } from "react"
 
 const Organization = () => {
+  const scrollRef = useRef(null)
+  
   return (
-    <div className="w-full flex px-6 sm:px-16 lg:px-36 flex-col pb-24 pt-14">
+    <div className="w-full flex px-6 sm:px-16 lg:px-36 flex-col pb-16 pt-14">
 
       {/* heading */}
       <div className="mb-8">
@@ -14,8 +18,8 @@ const Organization = () => {
       </div>
 
       {/* slider */}
-      <div className="overflow-auto pb-2 scrollbar-hidden">
-        <div className="flex gap-10 items-center">
+      <div className=" pb-2 relative">
+        <div ref={scrollRef}  className="flex gap-10 items-center overflow-auto scrollbar-hidden ">
           {
             organizations?.map(({id, logo, link}) => {
               return (
@@ -33,12 +37,8 @@ const Organization = () => {
               )
             })
           }
-          
-          
-            
-           
-            
         </div>
+        <SliderScroll distance={280} scrollRef={scrollRef}/>
       </div>
     </div>
   )

@@ -1,5 +1,6 @@
 import React from "react";
 import { eventList } from "@/Data/eventList";
+import { months } from "@/Data/months";
 
 const getEventsData = (eventData) => {
   let data = "empty data";
@@ -58,7 +59,7 @@ export const generateStaticEvents = () => {
   let staticEvents = "";
 
   try {
-    staticEvents = "mmmmmmmmmmm";
+    staticEvents = "mmmmmmmmmmm";    
   } catch (error) {
     err = error;
   }
